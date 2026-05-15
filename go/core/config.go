@@ -1,0 +1,333 @@
+package core
+
+func MakeConfig() map[string]any {
+	return map[string]any{
+		"main": map[string]any{
+			"name": "ProfanityFilter",
+		},
+		"feature": map[string]any{
+			"test": map[string]any{
+				"options": map[string]any{
+					"active": false,
+				},
+			},
+		},
+		"options": map[string]any{
+			"base": "https://www.purgomalum.com",
+			"auth": map[string]any{
+				"prefix": "Bearer",
+			},
+			"headers": map[string]any{
+				"content-type": "application/json",
+			},
+			"entity": map[string]any{
+				"containsprofanity": map[string]any{},
+				"json": map[string]any{},
+				"plain": map[string]any{},
+				"xml": map[string]any{},
+			},
+		},
+		"entity": map[string]any{
+			"containsprofanity": map[string]any{
+				"fields": []any{},
+				"name": "containsprofanity",
+				"op": map[string]any{
+					"load": map[string]any{
+						"name": "load",
+						"points": []any{
+							map[string]any{
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"kind": "query",
+											"name": "add",
+											"orig": "add",
+											"reqd": false,
+											"type": "`$STRING`",
+											"active": true,
+										},
+										map[string]any{
+											"kind": "query",
+											"name": "text",
+											"orig": "text",
+											"reqd": true,
+											"type": "`$STRING`",
+											"active": true,
+										},
+									},
+								},
+								"method": "GET",
+								"orig": "/service/containsprofanity",
+								"parts": []any{
+									"service",
+									"containsprofanity",
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"add",
+										"text",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"active": true,
+								"index$": 0,
+							},
+						},
+						"input": "data",
+						"key$": "load",
+					},
+				},
+				"relations": map[string]any{
+					"ancestors": []any{},
+				},
+			},
+			"json": map[string]any{
+				"fields": []any{
+					map[string]any{
+						"name": "result",
+						"req": false,
+						"type": "`$STRING`",
+						"active": true,
+						"index$": 0,
+					},
+				},
+				"name": "json",
+				"op": map[string]any{
+					"load": map[string]any{
+						"name": "load",
+						"points": []any{
+							map[string]any{
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"kind": "query",
+											"name": "add",
+											"orig": "add",
+											"reqd": false,
+											"type": "`$STRING`",
+											"active": true,
+										},
+										map[string]any{
+											"kind": "query",
+											"name": "fill_char",
+											"orig": "fill_char",
+											"reqd": false,
+											"type": "`$STRING`",
+											"active": true,
+										},
+										map[string]any{
+											"kind": "query",
+											"name": "fill_text",
+											"orig": "fill_text",
+											"reqd": false,
+											"type": "`$STRING`",
+											"active": true,
+										},
+										map[string]any{
+											"kind": "query",
+											"name": "text",
+											"orig": "text",
+											"reqd": true,
+											"type": "`$STRING`",
+											"active": true,
+										},
+									},
+								},
+								"method": "GET",
+								"orig": "/service/json",
+								"parts": []any{
+									"service",
+									"json",
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"add",
+										"fill_char",
+										"fill_text",
+										"text",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"active": true,
+								"index$": 0,
+							},
+						},
+						"input": "data",
+						"key$": "load",
+					},
+				},
+				"relations": map[string]any{
+					"ancestors": []any{},
+				},
+			},
+			"plain": map[string]any{
+				"fields": []any{},
+				"name": "plain",
+				"op": map[string]any{
+					"load": map[string]any{
+						"name": "load",
+						"points": []any{
+							map[string]any{
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"kind": "query",
+											"name": "add",
+											"orig": "add",
+											"reqd": false,
+											"type": "`$STRING`",
+											"active": true,
+										},
+										map[string]any{
+											"kind": "query",
+											"name": "fill_char",
+											"orig": "fill_char",
+											"reqd": false,
+											"type": "`$STRING`",
+											"active": true,
+										},
+										map[string]any{
+											"kind": "query",
+											"name": "fill_text",
+											"orig": "fill_text",
+											"reqd": false,
+											"type": "`$STRING`",
+											"active": true,
+										},
+										map[string]any{
+											"kind": "query",
+											"name": "text",
+											"orig": "text",
+											"reqd": true,
+											"type": "`$STRING`",
+											"active": true,
+										},
+									},
+								},
+								"method": "GET",
+								"orig": "/service/plain",
+								"parts": []any{
+									"service",
+									"plain",
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"add",
+										"fill_char",
+										"fill_text",
+										"text",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"active": true,
+								"index$": 0,
+							},
+						},
+						"input": "data",
+						"key$": "load",
+					},
+				},
+				"relations": map[string]any{
+					"ancestors": []any{},
+				},
+			},
+			"xml": map[string]any{
+				"fields": []any{},
+				"name": "xml",
+				"op": map[string]any{
+					"load": map[string]any{
+						"name": "load",
+						"points": []any{
+							map[string]any{
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"kind": "query",
+											"name": "add",
+											"orig": "add",
+											"reqd": false,
+											"type": "`$STRING`",
+											"active": true,
+										},
+										map[string]any{
+											"kind": "query",
+											"name": "fill_char",
+											"orig": "fill_char",
+											"reqd": false,
+											"type": "`$STRING`",
+											"active": true,
+										},
+										map[string]any{
+											"kind": "query",
+											"name": "fill_text",
+											"orig": "fill_text",
+											"reqd": false,
+											"type": "`$STRING`",
+											"active": true,
+										},
+										map[string]any{
+											"kind": "query",
+											"name": "text",
+											"orig": "text",
+											"reqd": true,
+											"type": "`$STRING`",
+											"active": true,
+										},
+									},
+								},
+								"method": "GET",
+								"orig": "/service/xml",
+								"parts": []any{
+									"service",
+									"xml",
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"add",
+										"fill_char",
+										"fill_text",
+										"text",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"active": true,
+								"index$": 0,
+							},
+						},
+						"input": "data",
+						"key$": "load",
+					},
+				},
+				"relations": map[string]any{
+					"ancestors": []any{},
+				},
+			},
+		},
+	}
+}
+
+func makeFeature(name string) Feature {
+	switch name {
+	case "test":
+		if NewTestFeatureFunc != nil {
+			return NewTestFeatureFunc()
+		}
+	default:
+		if NewBaseFeatureFunc != nil {
+			return NewBaseFeatureFunc()
+		}
+	}
+	return nil
+}

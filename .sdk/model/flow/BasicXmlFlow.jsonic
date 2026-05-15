@@ -1,0 +1,28 @@
+# BasicXmlFlow
+
+main: kit: flow: BasicXmlFlow:
+{
+  entity: "xml",
+  kind: "basic",
+  name: "BasicXmlFlow",
+  step: [
+    {
+      input: {
+        ref: "xml_ref01",
+        srcdatavar: "xml_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-xml_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicXmlFlow"
+}

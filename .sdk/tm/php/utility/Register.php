@@ -1,0 +1,67 @@
+<?php
+declare(strict_types=1);
+
+// ProfanityFilter SDK utility registration
+
+require_once __DIR__ . '/../core/UtilityType.php';
+require_once __DIR__ . '/Clean.php';
+require_once __DIR__ . '/Done.php';
+require_once __DIR__ . '/MakeError.php';
+require_once __DIR__ . '/FeatureAdd.php';
+require_once __DIR__ . '/FeatureHook.php';
+require_once __DIR__ . '/FeatureInit.php';
+require_once __DIR__ . '/Fetcher.php';
+require_once __DIR__ . '/MakeFetchDef.php';
+require_once __DIR__ . '/MakeContext.php';
+require_once __DIR__ . '/MakeOptions.php';
+require_once __DIR__ . '/MakeRequest.php';
+require_once __DIR__ . '/MakeResponse.php';
+require_once __DIR__ . '/MakeResult.php';
+require_once __DIR__ . '/MakePoint.php';
+require_once __DIR__ . '/MakeSpec.php';
+require_once __DIR__ . '/MakeUrl.php';
+require_once __DIR__ . '/Param.php';
+require_once __DIR__ . '/PrepareAuth.php';
+require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/PrepareHeaders.php';
+require_once __DIR__ . '/PrepareMethod.php';
+require_once __DIR__ . '/PrepareParams.php';
+require_once __DIR__ . '/PreparePath.php';
+require_once __DIR__ . '/PrepareQuery.php';
+require_once __DIR__ . '/ResultBasic.php';
+require_once __DIR__ . '/ResultBody.php';
+require_once __DIR__ . '/ResultHeaders.php';
+require_once __DIR__ . '/TransformRequest.php';
+require_once __DIR__ . '/TransformResponse.php';
+
+ProfanityFilterUtility::setRegistrar(function (ProfanityFilterUtility $u): void {
+    $u->clean = [ProfanityFilterClean::class, 'call'];
+    $u->done = [ProfanityFilterDone::class, 'call'];
+    $u->make_error = [ProfanityFilterMakeError::class, 'call'];
+    $u->feature_add = [ProfanityFilterFeatureAdd::class, 'call'];
+    $u->feature_hook = [ProfanityFilterFeatureHook::class, 'call'];
+    $u->feature_init = [ProfanityFilterFeatureInit::class, 'call'];
+    $u->fetcher = [ProfanityFilterFetcher::class, 'call'];
+    $u->make_fetch_def = [ProfanityFilterMakeFetchDef::class, 'call'];
+    $u->make_context = [ProfanityFilterMakeContext::class, 'call'];
+    $u->make_options = [ProfanityFilterMakeOptions::class, 'call'];
+    $u->make_request = [ProfanityFilterMakeRequest::class, 'call'];
+    $u->make_response = [ProfanityFilterMakeResponse::class, 'call'];
+    $u->make_result = [ProfanityFilterMakeResult::class, 'call'];
+    $u->make_point = [ProfanityFilterMakePoint::class, 'call'];
+    $u->make_spec = [ProfanityFilterMakeSpec::class, 'call'];
+    $u->make_url = [ProfanityFilterMakeUrl::class, 'call'];
+    $u->param = [ProfanityFilterParam::class, 'call'];
+    $u->prepare_auth = [ProfanityFilterPrepareAuth::class, 'call'];
+    $u->prepare_body = [ProfanityFilterPrepareBody::class, 'call'];
+    $u->prepare_headers = [ProfanityFilterPrepareHeaders::class, 'call'];
+    $u->prepare_method = [ProfanityFilterPrepareMethod::class, 'call'];
+    $u->prepare_params = [ProfanityFilterPrepareParams::class, 'call'];
+    $u->prepare_path = [ProfanityFilterPreparePath::class, 'call'];
+    $u->prepare_query = [ProfanityFilterPrepareQuery::class, 'call'];
+    $u->result_basic = [ProfanityFilterResultBasic::class, 'call'];
+    $u->result_body = [ProfanityFilterResultBody::class, 'call'];
+    $u->result_headers = [ProfanityFilterResultHeaders::class, 'call'];
+    $u->transform_request = [ProfanityFilterTransformRequest::class, 'call'];
+    $u->transform_response = [ProfanityFilterTransformResponse::class, 'call'];
+});

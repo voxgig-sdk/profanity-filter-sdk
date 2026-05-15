@@ -1,0 +1,6 @@
+# Entity Models
+
+@"containsprofanity.jsonic"
+@"json.jsonic"
+@"plain.jsonic"
+@"xml.jsonic"

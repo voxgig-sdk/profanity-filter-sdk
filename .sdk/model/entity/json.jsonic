@@ -1,0 +1,78 @@
+# Entity: json
+
+main: kit: entity: json: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "result"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "json"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "add"
+                orig: "add"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "fill_char"
+                orig: "fill_char"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "fill_text"
+                orig: "fill_text"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "text"
+                orig: "text"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/service/json"
+          parts: [
+            "service"
+            "json"
+          ]
+          select: {
+            exist: [
+              "add"
+              "fill_char"
+              "fill_text"
+              "text"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,54 @@
+# Entity: containsprofanity
+
+main: kit: entity: containsprofanity: {
+
+  alias: field: {}
+
+  name: "containsprofanity"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "add"
+                orig: "add"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "text"
+                orig: "text"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/service/containsprofanity"
+          parts: [
+            "service"
+            "containsprofanity"
+          ]
+          select: {
+            exist: [
+              "add"
+              "text"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

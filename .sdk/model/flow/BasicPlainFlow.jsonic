@@ -1,0 +1,28 @@
+# BasicPlainFlow
+
+main: kit: flow: BasicPlainFlow:
+{
+  entity: "plain",
+  kind: "basic",
+  name: "BasicPlainFlow",
+  step: [
+    {
+      input: {
+        ref: "plain_ref01",
+        srcdatavar: "plain_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-plain_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicPlainFlow"
+}

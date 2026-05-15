@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "containsprofanity": {
+      "CONTAINSPROFANITY00": {},
+      "CONTAINSPROFANITY01": {},
+      "CONTAINSPROFANITY02": {}
+    }
+  },
+  "new": {
+    "containsprofanity": {
+      "containsprofanity_ref01": {}
+    }
+  }
+}

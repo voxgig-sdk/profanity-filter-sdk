@@ -1,0 +1,391 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Profanity Filter API",
+    "description": "PurgoMalum is a free RESTful web service that filters and removes profanity and unwanted text from input. It supports customization options and can return the results in plain text, XML, or JSON formats.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "PurgoMalum Support",
+      "email": "admin@purgomalum.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://www.purgomalum.com",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/service/containsprofanity": {
+      "get": {
+        "summary": "Check if text contains profanity",
+        "description": "Returns 'true' if input text contains words matching profanity list. If no matches are found, returns 'false'.",
+        "operationId": "containsProfanity",
+        "parameters": [
+          {
+            "name": "text",
+            "in": "query",
+            "description": "Input text to be processed",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "add",
+            "in": "query",
+            "description": "A comma separated list of words to be added to the profanity list. Accepts up to 10 words (or 200 maximum characters in length).",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 200
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "true",
+                    "false"
+                  ]
+                },
+                "examples": {
+                  "noProfanity": {
+                    "value": "false"
+                  },
+                  "hasProfanity": {
+                    "value": "true"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid parameters",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/service/json": {
+      "get": {
+        "summary": "Filter profanity and return JSON",
+        "description": "Returns processed input text with profanity filtered out as JSON",
+        "operationId": "filterProfanityJson",
+        "parameters": [
+          {
+            "name": "text",
+            "in": "query",
+            "description": "Input text to be processed",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "add",
+            "in": "query",
+            "description": "A comma separated list of words to be added to the profanity list. Accepts up to 10 words (or 200 maximum characters in length).",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 200
+            }
+          },
+          {
+            "name": "fill_text",
+            "in": "query",
+            "description": "Text used to replace any words matching the profanity list. Maximum length of 20 characters. When not used, the default is an asterisk (*) fill.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 20
+            }
+          },
+          {
+            "name": "fill_char",
+            "in": "query",
+            "description": "Single character used to replace any words matching the profanity list. Fills designated character to length of word replaced. Accepts underscore (_) tilde (~), dash/hyphen (-), equal sign (=), pipe (|) and asterisk (*). When not used, the default is an asterisk (*) fill.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 1,
+              "enum": [
+                "_",
+                "~",
+                "-",
+                "=",
+                "|",
+                "*"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with filtered text",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "description": "The filtered text with profanity removed or replaced"
+                    }
+                  }
+                },
+                "examples": {
+                  "cleanText": {
+                    "value": {
+                      "result": "this is some test input"
+                    }
+                  },
+                  "filteredText": {
+                    "value": {
+                      "result": "this is some test *****"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "Error message describing the issue"
+                    }
+                  }
+                },
+                "examples": {
+                  "fillTextTooLong": {
+                    "value": {
+                      "error": "User Replacement Text Exceeds Limit of 20 Characters."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/service/xml": {
+      "get": {
+        "summary": "Filter profanity and return XML",
+        "description": "Returns processed input text with profanity filtered out as XML",
+        "operationId": "filterProfanityXml",
+        "parameters": [
+          {
+            "name": "text",
+            "in": "query",
+            "description": "Input text to be processed",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "add",
+            "in": "query",
+            "description": "A comma separated list of words to be added to the profanity list. Accepts up to 10 words (or 200 maximum characters in length).",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 200
+            }
+          },
+          {
+            "name": "fill_text",
+            "in": "query",
+            "description": "Text used to replace any words matching the profanity list. Maximum length of 20 characters. When not used, the default is an asterisk (*) fill.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 20
+            }
+          },
+          {
+            "name": "fill_char",
+            "in": "query",
+            "description": "Single character used to replace any words matching the profanity list. Fills designated character to length of word replaced. Accepts underscore (_) tilde (~), dash/hyphen (-), equal sign (=), pipe (|) and asterisk (*). When not used, the default is an asterisk (*) fill.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 1,
+              "enum": [
+                "_",
+                "~",
+                "-",
+                "=",
+                "|",
+                "*"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with filtered text",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "xml": {
+                    "name": "PurgoMalum",
+                    "namespace": "http://www.purgomalum.com"
+                  },
+                  "properties": {
+                    "result": {
+                      "type": "string",
+                      "description": "The filtered text with profanity removed or replaced"
+                    }
+                  }
+                },
+                "examples": {
+                  "cleanText": {
+                    "value": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><PurgoMalum xmlns=\"http://www.purgomalum.com\"><result>this is some test input</result></PurgoMalum>"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid parameters",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "xml": {
+                    "name": "PurgoMalum",
+                    "namespace": "http://www.purgomalum.com"
+                  },
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "Error message describing the issue"
+                    }
+                  }
+                },
+                "examples": {
+                  "fillTextTooLong": {
+                    "value": "<PurgoMalum xmlns=\"http://www.purgomalum.com\"><error>User Replacement Text Exceeds Limit of 20 Characters.</error></PurgoMalum>"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/service/plain": {
+      "get": {
+        "summary": "Filter profanity and return plain text",
+        "description": "Returns processed input text with profanity filtered out as plain text",
+        "operationId": "filterProfanityPlain",
+        "parameters": [
+          {
+            "name": "text",
+            "in": "query",
+            "description": "Input text to be processed",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "add",
+            "in": "query",
+            "description": "A comma separated list of words to be added to the profanity list. Accepts up to 10 words (or 200 maximum characters in length).",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 200
+            }
+          },
+          {
+            "name": "fill_text",
+            "in": "query",
+            "description": "Text used to replace any words matching the profanity list. Maximum length of 20 characters. When not used, the default is an asterisk (*) fill.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 20
+            }
+          },
+          {
+            "name": "fill_char",
+            "in": "query",
+            "description": "Single character used to replace any words matching the profanity list. Fills designated character to length of word replaced. Accepts underscore (_) tilde (~), dash/hyphen (-), equal sign (=), pipe (|) and asterisk (*). When not used, the default is an asterisk (*) fill.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 1,
+              "enum": [
+                "_",
+                "~",
+                "-",
+                "=",
+                "|",
+                "*"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with filtered text",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "description": "The filtered text with profanity removed or replaced"
+                },
+                "examples": {
+                  "cleanText": {
+                    "value": "this is some test input"
+                  },
+                  "filteredText": {
+                    "value": "this is some test *****"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid parameters",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "description": "Error message"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "PurgoMalum API Documentation",
+    "url": "https://www.purgomalum.com/"
+  }
+}

@@ -1,0 +1,70 @@
+# Entity: plain
+
+main: kit: entity: plain: {
+
+  alias: field: {}
+
+  name: "plain"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "add"
+                orig: "add"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "fill_char"
+                orig: "fill_char"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "fill_text"
+                orig: "fill_text"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "text"
+                orig: "text"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/service/plain"
+          parts: [
+            "service"
+            "plain"
+          ]
+          select: {
+            exist: [
+              "add"
+              "fill_char"
+              "fill_text"
+              "text"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

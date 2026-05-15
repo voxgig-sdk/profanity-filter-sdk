@@ -1,0 +1,22 @@
+{
+  "existing": {
+    "json": {
+      "JSON00": {
+        "result": "sa"
+      },
+      "JSON01": {
+        "result": "s14"
+      },
+      "JSON02": {
+        "result": "s1e"
+      }
+    }
+  },
+  "new": {
+    "json": {
+      "json_ref01": {
+        "result": "s28"
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "plain": {
+      "PLAIN00": {},
+      "PLAIN01": {},
+      "PLAIN02": {}
+    }
+  },
+  "new": {
+    "plain": {
+      "plain_ref01": {}
+    }
+  }
+}

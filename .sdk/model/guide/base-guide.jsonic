@@ -1,0 +1,32 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 4
+  metrics: count: path: 4
+  metrics: count: method: 4
+
+  entity: containsprofanity: {
+    path: "/service/containsprofanity": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: json: {
+    path: "/service/json": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: plain: {
+    path: "/service/plain": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: xml: {
+    path: "/service/xml": {
+      op: load: method: *GET
+    }
+  }
+
+}

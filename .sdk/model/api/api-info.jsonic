@@ -1,0 +1,24 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        email: "admin@purgomalum.com"
+        name: "PurgoMalum Support"
+      }
+      description: "PurgoMalum is a free RESTful web service that filters and removes profanity and unwanted text from input. It supports customization options and can return the results in plain text, XML, or JSON formats."
+      servers: [
+        {
+          description: "Production server"
+          url: "https://www.purgomalum.com"
+        }
+      ]
+      title: "Profanity Filter API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}
