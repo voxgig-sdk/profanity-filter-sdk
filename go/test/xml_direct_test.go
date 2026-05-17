@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/profanity-filter-sdk"
-	"github.com/voxgig-sdk/profanity-filter-sdk/core"
+	sdk "github.com/voxgig-sdk/profanity-filter-sdk/go"
+	"github.com/voxgig-sdk/profanity-filter-sdk/go/core"
 )
 
 func TestXmlDirect(t *testing.T) {

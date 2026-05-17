@@ -1,9 +1,15 @@
 {
   "existing": {
     "containsprofanity": {
-      "CONTAINSPROFANITY00": {},
-      "CONTAINSPROFANITY01": {},
-      "CONTAINSPROFANITY02": {}
+      "CONTAINSPROFANITY00": {
+        "id": "CONTAINSPROFANITY00"
+      },
+      "CONTAINSPROFANITY01": {
+        "id": "CONTAINSPROFANITY01"
+      },
+      "CONTAINSPROFANITY02": {
+        "id": "CONTAINSPROFANITY02"
+      }
     }
   },
   "new": {

@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/profanity-filter-sdk"
-	"github.com/voxgig-sdk/profanity-filter-sdk/core"
+	sdk "github.com/voxgig-sdk/profanity-filter-sdk/go"
+	"github.com/voxgig-sdk/profanity-filter-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/profanity-filter-sdk/go/utility/struct"
 )
 
 func TestContainsprofanityEntity(t *testing.T) {

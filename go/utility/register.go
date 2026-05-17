@@ -1,6 +1,6 @@
 package utility
 
-import "github.com/voxgig-sdk/profanity-filter-sdk/core"
+import "github.com/voxgig-sdk/profanity-filter-sdk/go/core"
 
 func init() {
 	core.UtilityRegistrar = registerAll

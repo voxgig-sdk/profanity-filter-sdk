@@ -1,9 +1,15 @@
 {
   "existing": {
     "xml": {
-      "XML00": {},
-      "XML01": {},
-      "XML02": {}
+      "XML00": {
+        "id": "XML00"
+      },
+      "XML01": {
+        "id": "XML01"
+      },
+      "XML02": {
+        "id": "XML02"
+      }
     }
   },
   "new": {

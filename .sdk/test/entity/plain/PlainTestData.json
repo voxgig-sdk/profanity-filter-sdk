@@ -1,9 +1,15 @@
 {
   "existing": {
     "plain": {
-      "PLAIN00": {},
-      "PLAIN01": {},
-      "PLAIN02": {}
+      "PLAIN00": {
+        "id": "PLAIN00"
+      },
+      "PLAIN01": {
+        "id": "PLAIN01"
+      },
+      "PLAIN02": {
+        "id": "PLAIN02"
+      }
     }
   },
   "new": {

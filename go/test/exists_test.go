@@ -3,7 +3,7 @@ package sdktest
 import (
 	"testing"
 
-	sdk "github.com/voxgig-sdk/profanity-filter-sdk"
+	sdk "github.com/voxgig-sdk/profanity-filter-sdk/go"
 )
 
 func TestExists(t *testing.T) {
