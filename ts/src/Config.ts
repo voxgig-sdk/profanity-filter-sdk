@@ -38,10 +38,6 @@ class Config {
   options = {
     base: 'https://www.purgomalum.com',
 
-    auth: {
-      prefix: 'Bearer',
-    },
-
     headers: {
       "content-type": "application/json"
     },
