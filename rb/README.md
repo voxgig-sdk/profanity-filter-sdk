@@ -10,13 +10,13 @@ The Ruby SDK for the ProfanityFilter API — an entity-oriented client using idi
 
 ## Install
 ```bash
-gem install profanity-filter-sdk
+gem install voxgig-sdk-profanity-filter
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "profanity-filter-sdk"
+gem "voxgig-sdk-profanity-filter"
 ```
 
 Then run:

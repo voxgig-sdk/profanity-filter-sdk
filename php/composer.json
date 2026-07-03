@@ -1,8 +1,17 @@
 {
   "name": "voxgig-sdk/profanity-filter",
-  "description": "ProfanityFilter SDK for PHP",
+  "description": "Unofficial generated PHP SDK for the Profanity Filter public API. Not affiliated with or endorsed by the upstream API provider.",
   "type": "library",
+  "keywords": ["voxgig", "sdk", "generated-sdk", "openapi", "api-client", "profanity-filter"],
+  "homepage": "https://github.com/voxgig-sdk/profanity-filter-sdk",
   "license": "MIT",
+  "authors": [
+    { "name": "Voxgig", "homepage": "https://voxgig.com" }
+  ],
+  "support": {
+    "issues": "https://github.com/voxgig-sdk/profanity-filter-sdk/issues",
+    "source": "https://github.com/voxgig-sdk/profanity-filter-sdk"
+  },
   "minimum-stability": "stable",
   "require": {
     "php": ">=8.2"

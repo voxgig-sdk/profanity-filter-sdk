@@ -10,7 +10,7 @@ The Lua SDK for the ProfanityFilter API — an entity-oriented client using Lua 
 
 ## Install
 ```bash
-luarocks install profanity-filter-sdk
+luarocks install voxgig-sdk-profanity-filter
 ```
 
 If the module is not yet published, add the source directory to

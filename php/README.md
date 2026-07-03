@@ -10,7 +10,7 @@ The PHP SDK for the ProfanityFilter API — an entity-oriented client using PHP 
 
 ## Install
 ```bash
-composer require voxgig/profanity-filter-sdk
+composer require voxgig-sdk/profanity-filter
 ```
 
 

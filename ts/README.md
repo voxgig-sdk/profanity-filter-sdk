@@ -10,7 +10,7 @@ The TypeScript SDK for the ProfanityFilter API — a type-safe, entity-oriented 
 
 ## Install
 ```bash
-npm install profanity-filter
+npm install @voxgig-sdk/profanity-filter
 ```
 ## Tutorial: your first API call
 

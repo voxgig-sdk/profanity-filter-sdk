@@ -10,7 +10,7 @@ The Python SDK for the ProfanityFilter API — an entity-oriented client followi
 
 ## Install
 ```bash
-pip install profanity-filter-sdk
+pip install voxgig-sdk-profanity-filter
 ```
 
 Or install from source:
