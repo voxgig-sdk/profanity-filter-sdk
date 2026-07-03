@@ -30,12 +30,12 @@ Create a new SDK client instance.
 
 ### Static Methods
 
-#### `sdk.test(testopts, sdkopts)`
+#### `sdk.test(testopts?, sdkopts?)`
 
-Create a test client with mock features active. Both arguments may be `nil`.
+Create a test client with mock features active. Both arguments are optional.
 
 ```lua
-local client = sdk.test(nil, nil)
+local client = sdk.test()
 ```
 
 
@@ -106,7 +106,7 @@ local containsprofanity = client:Containsprofanity(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Containsprofanity(nil):load({ id = "containsprofanity_id" }, nil)
+local result, err = client:Containsprofanity():load({ id = "containsprofanity_id" })
 ```
 
 ### Common Methods
@@ -158,7 +158,7 @@ local json = client:Json(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Json(nil):load({ id = "json_id" }, nil)
+local result, err = client:Json():load({ id = "json_id" })
 ```
 
 ### Common Methods
@@ -204,7 +204,7 @@ local plain = client:Plain(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Plain(nil):load({ id = "plain_id" }, nil)
+local result, err = client:Plain():load({ id = "plain_id" })
 ```
 
 ### Common Methods
@@ -250,7 +250,7 @@ local xml = client:Xml(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Xml(nil):load({ id = "xml_id" }, nil)
+local result, err = client:Xml():load({ id = "xml_id" })
 ```
 
 ### Common Methods

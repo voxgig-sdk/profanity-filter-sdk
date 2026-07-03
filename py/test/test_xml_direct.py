@@ -59,12 +59,14 @@ def _xml_direct_setup(mockres):
     env = runner.env_override({
         "PROFANITYFILTER_TEST_XML_ENTID": {},
         "PROFANITYFILTER_TEST_LIVE": "FALSE",
+        "PROFANITYFILTER_APIKEY": "NONE",
     })
 
     live = env.get("PROFANITYFILTER_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
+            "apikey": env.get("PROFANITYFILTER_APIKEY"),
         }
         client = ProfanityFilterSDK(merged_opts)
         return {

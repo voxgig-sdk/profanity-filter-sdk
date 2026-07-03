@@ -91,6 +91,7 @@ def _xml_basic_setup(extra):
         "PROFANITYFILTER_TEST_XML_ENTID": idmap,
         "PROFANITYFILTER_TEST_LIVE": "FALSE",
         "PROFANITYFILTER_TEST_EXPLAIN": "FALSE",
+        "PROFANITYFILTER_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -101,6 +102,7 @@ def _xml_basic_setup(extra):
     if env.get("PROFANITYFILTER_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
+                "apikey": env.get("PROFANITYFILTER_APIKEY"),
             },
             extra or {},
         ])

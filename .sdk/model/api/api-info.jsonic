@@ -17,33 +17,7 @@ main: {
       ]
       title: "Profanity Filter API"
       version: "1.0.0"
-      tagline: "Filter profanity from arbitrary text via a simple REST call, with plain text, JSON, or XML responses"
-      homepage: "https://www.purgomalum.com"
-      docs_url: "https://www.purgomalum.com"
-      license_short: "Free service; no licence or attribution requirements published."
-      license_md: `- Free to use; no API key or authentication required.
-- No explicit licence or terms of use are published on the PurgoMalum homepage.
-- No attribution requirement is documented.
-- Operated as a courtesy service by the maintainer (admin@purgomalum.com) — availability is not guaranteed.`
-      about_md: `[PurgoMalum](https://www.purgomalum.com) is a simple, free, RESTful web service for filtering and removing profanity, obscenity, and other unwanted text from a string. It is maintained by an individual operator (Sam, admin@purgomalum.com) and is reachable at \`https://www.purgomalum.com\`.
-
-The API exposes a single filtering operation under \`/service/\` with four response shapes:
-
-- \`/service/plain\` — returns the filtered text as plain text
-- \`/service/json\` — returns the filtered text wrapped in JSON
-- \`/service/xml\` — returns the filtered text wrapped in XML
-- \`/service/containsprofanity\` — returns a boolean indicating whether the input contains profanity
-
-All endpoints accept the same query parameters: \`text\` (the input string, required), \`add\` (a comma-separated list of up to 10 extra words to block, max 200 characters), \`fill_text\` (a replacement phrase, max 20 characters), and \`fill_char\` (a single replacement character — one of \`_\`, \`~\`, \`-\`, \`=\`, \`|\`, or \`*\`).
-
-The filter recognises common character substitutions (for example \`@\` for \`a\`) and applies a built-in whitelist of safe words (such as "class") to reduce false positives. Errors are returned as an \`<error>\` element instead of the usual result body. CORS is enabled, so the service can be called directly from browsers. No rate limits or authentication are documented.`
-      entity_desc: {
-        containsprofanity: "Boolean profanity-detection endpoint at `/service/containsprofanity` — returns `true` or `false` for whether the supplied `text` contains profanity."
-        json: "JSON-formatted filter endpoint at `/service/json` — returns the filtered text wrapped in a JSON object."
-        plain: "Plain-text filter endpoint at `/service/plain` — returns the filtered text as a raw string."
-        xml: "XML-formatted filter endpoint at `/service/xml` — returns the filtered text wrapped in an XML element."
-      }
-      auth: false
     }
   }
 }
+

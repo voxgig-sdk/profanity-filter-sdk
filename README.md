@@ -1,23 +1,8 @@
 # ProfanityFilter SDK
 
-Filter profanity from arbitrary text via a simple REST call, with plain text, JSON, or XML responses
+Profanity Filter API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Profanity Filter API
-
-[PurgoMalum](https://www.purgomalum.com) is a simple, free, RESTful web service for filtering and removing profanity, obscenity, and other unwanted text from a string. It is maintained by an individual operator (Sam, admin@purgomalum.com) and is reachable at `https://www.purgomalum.com`.
-
-The API exposes a single filtering operation under `/service/` with four response shapes:
-
-- `/service/plain` — returns the filtered text as plain text
-- `/service/json` — returns the filtered text wrapped in JSON
-- `/service/xml` — returns the filtered text wrapped in XML
-- `/service/containsprofanity` — returns a boolean indicating whether the input contains profanity
-
-All endpoints accept the same query parameters: `text` (the input string, required), `add` (a comma-separated list of up to 10 extra words to block, max 200 characters), `fill_text` (a replacement phrase, max 20 characters), and `fill_char` (a single replacement character — one of `_`, `~`, `-`, `=`, `|`, or `*`).
-
-The filter recognises common character substitutions (for example `@` for `a`) and applies a built-in whitelist of safe words (such as "class") to reduce false positives. Errors are returned as an `<error>` element instead of the usual result body. CORS is enabled, so the service can be called directly from browsers. No rate limits or authentication are documented.
 
 ## Try it
 
@@ -51,27 +36,31 @@ gem install profanity-filter-sdk
 luarocks install profanity-filter-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { ProfanityFilterSDK } from 'profanity-filter'
 
-const client = new ProfanityFilterSDK({})
+const client = new ProfanityFilterSDK({
+  apikey: process.env.PROFANITY-FILTER_APIKEY,
+})
 
+// Load containsprofanity data
+const containsprofanity = await client.Containsprofanity().load({})
+console.log(containsprofanity.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -101,10 +90,10 @@ The API exposes 4 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Containsprofanity** | Boolean profanity-detection endpoint at `/service/containsprofanity` — returns `true` or `false` for whether the supplied `text` contains profanity. | `/service/containsprofanity` |
-| **Json** | JSON-formatted filter endpoint at `/service/json` — returns the filtered text wrapped in a JSON object. | `/service/json` |
-| **Plain** | Plain-text filter endpoint at `/service/plain` — returns the filtered text as a raw string. | `/service/plain` |
-| **Xml** | XML-formatted filter endpoint at `/service/xml` — returns the filtered text wrapped in an XML element. | `/service/xml` |
+| **Containsprofanity** |  | `/service/containsprofanity` |
+| **Json** |  | `/service/json` |
+| **Plain** |  | `/service/plain` |
+| **Xml** |  | `/service/xml` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -114,15 +103,17 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from profanityfilter_sdk import ProfanityFilterSDK
 
-client = ProfanityFilterSDK({})
+client = ProfanityFilterSDK({
+    "apikey": os.environ.get("PROFANITY-FILTER_APIKEY"),
+})
 
 
 # Load a specific containsprofanity
-containsprofanity, err = client.Containsprofanity(None).load(
-    {"id": "example_id"}, None
-)
+containsprofanity, err = client.Containsprofanity().load({"id": "example_id"})
+print(containsprofanity)
 ```
 
 ### PHP
@@ -131,13 +122,14 @@ containsprofanity, err = client.Containsprofanity(None).load(
 <?php
 require_once 'profanityfilter_sdk.php';
 
-$client = new ProfanityFilterSDK([]);
+$client = new ProfanityFilterSDK([
+    "apikey" => getenv("PROFANITY-FILTER_APIKEY"),
+]);
 
 
 // Load a specific containsprofanity
-[$containsprofanity, $err] = $client->Containsprofanity(null)->load(
-    ["id" => "example_id"], null
-);
+[$containsprofanity, $err] = $client->Containsprofanity()->load(["id" => "example_id"]);
+print_r($containsprofanity);
 ```
 
 ### Golang
@@ -145,8 +137,13 @@ $client = new ProfanityFilterSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/profanity-filter-sdk/go"
 
-client := sdk.NewProfanityFilterSDK(map[string]any{})
+client := sdk.NewProfanityFilterSDK(map[string]any{
+    "apikey": os.Getenv("PROFANITY-FILTER_APIKEY"),
+})
 
+// Load containsprofanity data
+containsprofanity, err := client.Containsprofanity(nil).Load(map[string]any{}, nil)
+fmt.Println(containsprofanity)
 ```
 
 ### Ruby
@@ -154,13 +151,14 @@ client := sdk.NewProfanityFilterSDK(map[string]any{})
 ```ruby
 require_relative "ProfanityFilter_sdk"
 
-client = ProfanityFilterSDK.new({})
+client = ProfanityFilterSDK.new({
+  "apikey" => ENV["PROFANITY-FILTER_APIKEY"],
+})
 
 
 # Load a specific containsprofanity
-containsprofanity, err = client.Containsprofanity(nil).load(
-  { "id" => "example_id" }, nil
-)
+containsprofanity, err = client.Containsprofanity().load({ "id" => "example_id" })
+puts containsprofanity
 ```
 
 ### Lua
@@ -168,13 +166,14 @@ containsprofanity, err = client.Containsprofanity(nil).load(
 ```lua
 local sdk = require("profanity-filter_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("PROFANITY-FILTER_APIKEY"),
+})
 
 
 -- Load a specific containsprofanity
-local containsprofanity, err = client:Containsprofanity(nil):load(
-  { id = "example_id" }, nil
-)
+local containsprofanity, err = client:Containsprofanity():load({ id = "example_id" })
+print(containsprofanity)
 ```
 
 ## Unit testing in offline mode
@@ -193,25 +192,21 @@ const result = await client.Containsprofanity().load({ id: 'test01' })
 ### Python
 
 ```python
-client = ProfanityFilterSDK.test(None, None)
-result, err = client.Containsprofanity(None).load(
-    {"id": "test01"}, None
-)
+client = ProfanityFilterSDK.test()
+result, err = client.Containsprofanity().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = ProfanityFilterSDK::test(null, null);
-[$result, $err] = $client->Containsprofanity(null)->load(
-    ["id" => "test01"], null
-);
+$client = ProfanityFilterSDK::test();
+[$result, $err] = $client->Containsprofanity()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Containsprofanity(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -220,19 +215,15 @@ result, err := client.Containsprofanity(nil).Load(
 ### Ruby
 
 ```ruby
-client = ProfanityFilterSDK.test(nil, nil)
-result, err = client.Containsprofanity(nil).load(
-  { "id" => "test01" }, nil
-)
+client = ProfanityFilterSDK.test
+result, err = client.Containsprofanity().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Containsprofanity(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Containsprofanity():load({ id = "test01" })
 ```
 
 ## How it works
@@ -336,15 +327,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Profanity Filter API
-
-- Upstream: [https://www.purgomalum.com](https://www.purgomalum.com)
-
-- Free to use; no API key or authentication required.
-- No explicit licence or terms of use are published on the PurgoMalum homepage.
-- No attribution requirement is documented.
-- Operated as a courtesy service by the maintainer (admin@purgomalum.com) — availability is not guaranteed.
 
 ---
 

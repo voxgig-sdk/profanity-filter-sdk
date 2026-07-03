@@ -99,12 +99,14 @@ func plainDirectSetup(mockres any) *plainDirectSetupResult {
 	env := envOverride(map[string]any{
 		"PROFANITYFILTER_TEST_PLAIN_ENTID": map[string]any{},
 		"PROFANITYFILTER_TEST_LIVE":    "FALSE",
+		"PROFANITYFILTER_APIKEY":       "NONE",
 	})
 
 	live := env["PROFANITYFILTER_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["PROFANITYFILTER_APIKEY"],
 		}
 		client := sdk.NewProfanityFilterSDK(mergedOpts)
 

@@ -85,6 +85,7 @@ function xml_basic_setup($extra)
         "PROFANITYFILTER_TEST_XML_ENTID" => $idmap,
         "PROFANITYFILTER_TEST_LIVE" => "FALSE",
         "PROFANITYFILTER_TEST_EXPLAIN" => "FALSE",
+        "PROFANITYFILTER_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -96,6 +97,7 @@ function xml_basic_setup($extra)
     if ($env["PROFANITYFILTER_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
+                "apikey" => $env["PROFANITYFILTER_APIKEY"],
             ],
             $extra ?? [],
         ]);

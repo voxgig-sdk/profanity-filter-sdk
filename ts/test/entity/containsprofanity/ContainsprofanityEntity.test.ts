@@ -113,6 +113,7 @@ function basicSetup(extra?: any) {
     'PROFANITY_FILTER_TEST_CONTAINSPROFANITY_ENTID': idmap,
     'PROFANITY_FILTER_TEST_LIVE': 'FALSE',
     'PROFANITY_FILTER_TEST_EXPLAIN': 'FALSE',
+    'PROFANITY_FILTER_APIKEY': 'NONE',
   })
 
   idmap = env['PROFANITY_FILTER_TEST_CONTAINSPROFANITY_ENTID']
@@ -122,6 +123,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new ProfanityFilterSDK(merge([
       {
+        apikey: env.PROFANITY_FILTER_APIKEY,
       },
       extra
     ]))

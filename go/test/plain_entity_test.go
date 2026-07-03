@@ -117,6 +117,7 @@ func plainBasicSetup(extra map[string]any) *entityTestSetup {
 		"PROFANITYFILTER_TEST_PLAIN_ENTID": idmap,
 		"PROFANITYFILTER_TEST_LIVE":      "FALSE",
 		"PROFANITYFILTER_TEST_EXPLAIN":   "FALSE",
+		"PROFANITYFILTER_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["PROFANITYFILTER_TEST_PLAIN_ENTID"])
@@ -127,6 +128,7 @@ func plainBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["PROFANITYFILTER_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["PROFANITYFILTER_APIKEY"],
 			},
 			extra,
 		})

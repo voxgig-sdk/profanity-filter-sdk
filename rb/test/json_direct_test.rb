@@ -61,12 +61,14 @@ def json_direct_setup(mockres)
   env = Runner.env_override({
     "PROFANITYFILTER_TEST_JSON_ENTID" => {},
     "PROFANITYFILTER_TEST_LIVE" => "FALSE",
+    "PROFANITYFILTER_APIKEY" => "NONE",
   })
 
   live = env["PROFANITYFILTER_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {
+      "apikey" => env["PROFANITYFILTER_APIKEY"],
     }
     client = ProfanityFilterSDK.new(merged_opts)
     return {
