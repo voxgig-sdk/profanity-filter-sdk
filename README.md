@@ -26,9 +26,9 @@ import { ProfanityFilterSDK } from '@voxgig-sdk/profanity-filter'
 
 const client = new ProfanityFilterSDK()
 
-// Load containsprofanity data
-const containsprofanity = await client.containsprofanity.load({})
-console.log(containsprofanity.data)
+// Load containsprofanity data (returns a Containsprofanity)
+const containsprofanity = await client.Containsprofanity().load()
+console.log(containsprofanity)
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -87,8 +87,8 @@ from profanityfilter_sdk import ProfanityFilterSDK
 client = ProfanityFilterSDK()
 
 
-# Load a specific containsprofanity
-containsprofanity = client.containsprofanity.load({"id": "example_id"})
+# Load a specific containsprofanity (returns the record, raises on error)
+containsprofanity = client.Containsprofanity().load({"id": "example_id"})
 print(containsprofanity)
 ```
 
@@ -101,8 +101,8 @@ require_once 'profanityfilter_sdk.php';
 $client = new ProfanityFilterSDK();
 
 
-// Load a specific containsprofanity
-$containsprofanity = $client->containsprofanity()->load(["id" => "example_id"]);
+// Load a specific containsprofanity (returns the bare record; throws on error)
+$containsprofanity = $client->Containsprofanity()->load(["id" => "example_id"]);
 print_r($containsprofanity);
 ```
 
@@ -126,8 +126,8 @@ require_relative "ProfanityFilter_sdk"
 client = ProfanityFilterSDK.new
 
 
-# Load a specific containsprofanity
-containsprofanity = client.containsprofanity.load({ "id" => "example_id" })
+# Load a specific containsprofanity (returns the bare record; raises on error)
+containsprofanity = client.Containsprofanity.load({ "id" => "example_id" })
 puts containsprofanity
 ```
 
@@ -140,7 +140,7 @@ local client = sdk.new()
 
 
 -- Load a specific containsprofanity
-local containsprofanity, err = client:containsprofanity():load({ id = "example_id" })
+local containsprofanity, err = client:Containsprofanity():load({ id = "example_id" })
 print(containsprofanity)
 ```
 
@@ -153,22 +153,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = ProfanityFilterSDK.test()
-const result = await client.containsprofanity.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const containsprofanity = await client.Containsprofanity().load({ id: 'test01' })
+// containsprofanity is a bare Containsprofanity populated with mock data
+console.log(containsprofanity)
 ```
 
 ### Python
 
 ```python
 client = ProfanityFilterSDK.test()
-result = client.containsprofanity.load({"id": "test01"})
+containsprofanity = client.Containsprofanity().load({"id": "test01"})
+print(containsprofanity)
 ```
 
 ### PHP
 
 ```php
-$client = ProfanityFilterSDK::test();
-$result = $client->containsprofanity()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = ProfanityFilterSDK::test([
+    "entity" => ["containsprofanity" => ["test01" => ["id" => "test01"]]],
+]);
+$containsprofanity = $client->Containsprofanity()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -183,15 +188,18 @@ result, err := client.Containsprofanity(nil).Load(
 ### Ruby
 
 ```ruby
-client = ProfanityFilterSDK.test
-result = client.containsprofanity.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = ProfanityFilterSDK.test({
+  "entity" => { "containsprofanity" => { "test01" => { "id" => "test01" } } },
+})
+containsprofanity = client.Containsprofanity.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:containsprofanity():load({ id = "test01" })
+local result, err = client:Containsprofanity():load({ id = "test01" })
 ```
 
 ## How it works
@@ -239,6 +247,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

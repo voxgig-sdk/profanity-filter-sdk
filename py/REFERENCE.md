@@ -92,7 +92,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## ContainsprofanityEntity
 
 ```python
-containsprofanity = client.containsprofanity
+containsprofanity = client.Containsprofanity()
 ```
 
 ### Operations
@@ -102,7 +102,7 @@ containsprofanity = client.containsprofanity
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.containsprofanity.load({"id": "containsprofanity_id"})
+result = client.Containsprofanity().load({"id": "containsprofanity_id"})
 ```
 
 ### Common Methods
@@ -137,7 +137,7 @@ Return the entity name.
 ## JsonEntity
 
 ```python
-json = client.json
+json = client.Json()
 ```
 
 ### Fields
@@ -153,7 +153,7 @@ json = client.json
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.json.load({"id": "json_id"})
+result = client.Json().load({"id": "json_id"})
 ```
 
 ### Common Methods
@@ -188,7 +188,7 @@ Return the entity name.
 ## PlainEntity
 
 ```python
-plain = client.plain
+plain = client.Plain()
 ```
 
 ### Operations
@@ -198,7 +198,7 @@ plain = client.plain
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.plain.load({"id": "plain_id"})
+result = client.Plain().load({"id": "plain_id"})
 ```
 
 ### Common Methods
@@ -233,7 +233,7 @@ Return the entity name.
 ## XmlEntity
 
 ```python
-xml = client.xml
+xml = client.Xml()
 ```
 
 ### Operations
@@ -243,7 +243,7 @@ xml = client.xml
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.xml.load({"id": "xml_id"})
+result = client.Xml().load({"id": "xml_id"})
 ```
 
 ### Common Methods

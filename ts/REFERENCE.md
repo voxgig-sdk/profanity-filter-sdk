@@ -145,7 +145,7 @@ Alias for `ProfanityFilterSDK.test()`.
 ## ContainsprofanityEntity
 
 ```ts
-const containsprofanity = client.containsprofanity
+const containsprofanity = client.Containsprofanity()
 ```
 
 ### Operations
@@ -155,7 +155,7 @@ const containsprofanity = client.containsprofanity
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.containsprofanity.load({ id: 'containsprofanity_id' })
+const result = await client.Containsprofanity().load({ id: 'containsprofanity_id' })
 ```
 
 ### Common Methods
@@ -189,7 +189,7 @@ Return a copy of the entity options.
 ## JsonEntity
 
 ```ts
-const json = client.json
+const json = client.Json()
 ```
 
 ### Fields
@@ -205,7 +205,7 @@ const json = client.json
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.json.load({ id: 'json_id' })
+const result = await client.Json().load({ id: 'json_id' })
 ```
 
 ### Common Methods
@@ -239,7 +239,7 @@ Return a copy of the entity options.
 ## PlainEntity
 
 ```ts
-const plain = client.plain
+const plain = client.Plain()
 ```
 
 ### Operations
@@ -249,7 +249,7 @@ const plain = client.plain
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.plain.load({ id: 'plain_id' })
+const result = await client.Plain().load({ id: 'plain_id' })
 ```
 
 ### Common Methods
@@ -283,7 +283,7 @@ Return a copy of the entity options.
 ## XmlEntity
 
 ```ts
-const xml = client.xml
+const xml = client.Xml()
 ```
 
 ### Operations
@@ -293,7 +293,7 @@ const xml = client.xml
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.xml.load({ id: 'xml_id' })
+const result = await client.Xml().load({ id: 'xml_id' })
 ```
 
 ### Common Methods

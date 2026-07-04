@@ -33,9 +33,10 @@ $client = new ProfanityFilterSDK();
 
 ```php
 try {
-    $result = $client->containsprofanity()->load(["id" => "example_id"]);
-    print_r($result);
-} catch (\Exception $err) {
+    // load() returns the bare Containsprofanity record (throws on error).
+    $containsprofanity = $client->Containsprofanity()->load(["id" => "example_id"]);
+    print_r($containsprofanity);
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -81,13 +82,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = ProfanityFilterSDK::test();
+$client = ProfanityFilterSDK::test([
+    "entity" => ["containsprofanity" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->containsprofanity()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$containsprofanity = $client->Containsprofanity()->load(["id" => "test01"]);
+print_r($containsprofanity);
 ```
 
 ### Use a custom fetch function
@@ -253,7 +258,7 @@ API path: `/service/xml`
 
 ### Containsprofanity
 
-Create an instance: `const containsprofanity = client.containsprofanity`
+Create an instance: `$containsprofanity = $client->Containsprofanity();`
 
 #### Operations
 
@@ -263,14 +268,15 @@ Create an instance: `const containsprofanity = client.containsprofanity`
 
 #### Example: Load
 
-```ts
-const containsprofanity = await client.containsprofanity.load({ id: 'containsprofanity_id' })
+```php
+// load() returns the bare Containsprofanity record (throws on error).
+$containsprofanity = $client->Containsprofanity()->load(["id" => "containsprofanity_id"]);
 ```
 
 
 ### Json
 
-Create an instance: `const json = client.json`
+Create an instance: `$json = $client->Json();`
 
 #### Operations
 
@@ -286,14 +292,15 @@ Create an instance: `const json = client.json`
 
 #### Example: Load
 
-```ts
-const json = await client.json.load({ id: 'json_id' })
+```php
+// load() returns the bare Json record (throws on error).
+$json = $client->Json()->load(["id" => "json_id"]);
 ```
 
 
 ### Plain
 
-Create an instance: `const plain = client.plain`
+Create an instance: `$plain = $client->Plain();`
 
 #### Operations
 
@@ -303,14 +310,15 @@ Create an instance: `const plain = client.plain`
 
 #### Example: Load
 
-```ts
-const plain = await client.plain.load({ id: 'plain_id' })
+```php
+// load() returns the bare Plain record (throws on error).
+$plain = $client->Plain()->load(["id" => "plain_id"]);
 ```
 
 
 ### Xml
 
-Create an instance: `const xml = client.xml`
+Create an instance: `$xml = $client->Xml();`
 
 #### Operations
 
@@ -320,8 +328,9 @@ Create an instance: `const xml = client.xml`
 
 #### Example: Load
 
-```ts
-const xml = await client.xml.load({ id: 'xml_id' })
+```php
+// load() returns the bare Xml record (throws on error).
+$xml = $client->Xml()->load(["id" => "xml_id"]);
 ```
 
 
@@ -396,7 +405,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$containsprofanity = $client->containsprofanity();
+$containsprofanity = $client->Containsprofanity();
 $containsprofanity->load(["id" => "example_id"]);
 
 // $containsprofanity->dataGet() now returns the loaded containsprofanity data

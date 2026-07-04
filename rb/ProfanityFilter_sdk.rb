@@ -208,52 +208,28 @@ class ProfanityFilterSDK
   end
 
 
-  # Idiomatic facade: client.containsprofanity.list / client.containsprofanity.load({ "id" => ... })
-  def containsprofanity
-    require_relative 'entity/containsprofanity_entity'
-    @containsprofanity ||= ContainsprofanityEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.containsprofanity instead.
+  # Canonical facade: client.Containsprofanity.list / client.Containsprofanity.load({ "id" => ... })
   def Containsprofanity(data = nil)
     require_relative 'entity/containsprofanity_entity'
     ContainsprofanityEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.json.list / client.json.load({ "id" => ... })
-  def json
-    require_relative 'entity/json_entity'
-    @json ||= JsonEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.json instead.
+  # Canonical facade: client.Json.list / client.Json.load({ "id" => ... })
   def Json(data = nil)
     require_relative 'entity/json_entity'
     JsonEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.plain.list / client.plain.load({ "id" => ... })
-  def plain
-    require_relative 'entity/plain_entity'
-    @plain ||= PlainEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.plain instead.
+  # Canonical facade: client.Plain.list / client.Plain.load({ "id" => ... })
   def Plain(data = nil)
     require_relative 'entity/plain_entity'
     PlainEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.xml.list / client.xml.load({ "id" => ... })
-  def xml
-    require_relative 'entity/xml_entity'
-    @xml ||= XmlEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.xml instead.
+  # Canonical facade: client.Xml.list / client.Xml.load({ "id" => ... })
   def Xml(data = nil)
     require_relative 'entity/xml_entity'
     XmlEntity.new(self, data)

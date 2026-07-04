@@ -233,10 +233,10 @@ class ProfanityFilterSDK
 
     private $_containsprofanity = null;
 
-    // Idiomatic facade: $client->containsprofanity()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Containsprofanity() (PHP method
-    // names are case-insensitive).
-    public function containsprofanity($data = null)
+    // Canonical facade: $client->Containsprofanity()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->containsprofanity()
+    // resolves here too.
+    public function Containsprofanity($data = null)
     {
         require_once __DIR__ . '/entity/containsprofanity_entity.php';
         if ($data === null) {
@@ -251,10 +251,10 @@ class ProfanityFilterSDK
 
     private $_json = null;
 
-    // Idiomatic facade: $client->json()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Json() (PHP method
-    // names are case-insensitive).
-    public function json($data = null)
+    // Canonical facade: $client->Json()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->json()
+    // resolves here too.
+    public function Json($data = null)
     {
         require_once __DIR__ . '/entity/json_entity.php';
         if ($data === null) {
@@ -269,10 +269,10 @@ class ProfanityFilterSDK
 
     private $_plain = null;
 
-    // Idiomatic facade: $client->plain()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Plain() (PHP method
-    // names are case-insensitive).
-    public function plain($data = null)
+    // Canonical facade: $client->Plain()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->plain()
+    // resolves here too.
+    public function Plain($data = null)
     {
         require_once __DIR__ . '/entity/plain_entity.php';
         if ($data === null) {
@@ -287,10 +287,10 @@ class ProfanityFilterSDK
 
     private $_xml = null;
 
-    // Idiomatic facade: $client->xml()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Xml() (PHP method
-    // names are case-insensitive).
-    public function xml($data = null)
+    // Canonical facade: $client->Xml()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->xml()
+    // resolves here too.
+    public function Xml($data = null)
     {
         require_once __DIR__ . '/entity/xml_entity.php';
         if ($data === null) {

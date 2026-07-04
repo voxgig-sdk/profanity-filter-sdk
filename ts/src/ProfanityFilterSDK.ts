@@ -207,56 +207,28 @@ class ProfanityFilterSDK {
 
 
 
-  _containsprofanity?: ContainsprofanityEntity
-
-  // Idiomatic facade: `client.containsprofanity.list()` / `client.containsprofanity.load({ id })`.
-  get containsprofanity(): ContainsprofanityEntity {
-    return (this._containsprofanity ??= new ContainsprofanityEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.containsprofanity` instead. */
+  // Entity access: `client.Containsprofanity().list()` / `client.Containsprofanity().load({ id })`.
   Containsprofanity(data?: any) {
     const self = this
     return new ContainsprofanityEntity(self,data)
   }
 
 
-  _json?: JsonEntity
-
-  // Idiomatic facade: `client.json.list()` / `client.json.load({ id })`.
-  get json(): JsonEntity {
-    return (this._json ??= new JsonEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.json` instead. */
+  // Entity access: `client.Json().list()` / `client.Json().load({ id })`.
   Json(data?: any) {
     const self = this
     return new JsonEntity(self,data)
   }
 
 
-  _plain?: PlainEntity
-
-  // Idiomatic facade: `client.plain.list()` / `client.plain.load({ id })`.
-  get plain(): PlainEntity {
-    return (this._plain ??= new PlainEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.plain` instead. */
+  // Entity access: `client.Plain().list()` / `client.Plain().load({ id })`.
   Plain(data?: any) {
     const self = this
     return new PlainEntity(self,data)
   }
 
 
-  _xml?: XmlEntity
-
-  // Idiomatic facade: `client.xml.list()` / `client.xml.load({ id })`.
-  get xml(): XmlEntity {
-    return (this._xml ??= new XmlEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.xml` instead. */
+  // Entity access: `client.Xml().list()` / `client.Xml().load({ id })`.
   Xml(data?: any) {
     const self = this
     return new XmlEntity(self,data)

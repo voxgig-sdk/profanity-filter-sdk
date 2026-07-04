@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:containsprofanity():list() / client:containsprofanity():load({ id = ... })
-function ProfanityFilterSDK:containsprofanity(data)
+-- Idiomatic facade: client:Containsprofanity():list() / client:Containsprofanity():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function ProfanityFilterSDK:Containsprofanity(data)
   local EntityMod = require("entity.containsprofanity_entity")
   if data == nil then
     if self._containsprofanity == nil then
@@ -256,15 +257,10 @@ function ProfanityFilterSDK:containsprofanity(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:containsprofanity() instead.
-function ProfanityFilterSDK:Containsprofanity(data)
-  local EntityMod = require("entity.containsprofanity_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:json():list() / client:json():load({ id = ... })
-function ProfanityFilterSDK:json(data)
+-- Idiomatic facade: client:Json():list() / client:Json():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function ProfanityFilterSDK:Json(data)
   local EntityMod = require("entity.json_entity")
   if data == nil then
     if self._json == nil then
@@ -275,15 +271,10 @@ function ProfanityFilterSDK:json(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:json() instead.
-function ProfanityFilterSDK:Json(data)
-  local EntityMod = require("entity.json_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:plain():list() / client:plain():load({ id = ... })
-function ProfanityFilterSDK:plain(data)
+-- Idiomatic facade: client:Plain():list() / client:Plain():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function ProfanityFilterSDK:Plain(data)
   local EntityMod = require("entity.plain_entity")
   if data == nil then
     if self._plain == nil then
@@ -294,15 +285,10 @@ function ProfanityFilterSDK:plain(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:plain() instead.
-function ProfanityFilterSDK:Plain(data)
-  local EntityMod = require("entity.plain_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:xml():list() / client:xml():load({ id = ... })
-function ProfanityFilterSDK:xml(data)
+-- Idiomatic facade: client:Xml():list() / client:Xml():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function ProfanityFilterSDK:Xml(data)
   local EntityMod = require("entity.xml_entity")
   if data == nil then
     if self._xml == nil then
@@ -310,12 +296,6 @@ function ProfanityFilterSDK:xml(data)
     end
     return self._xml
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:xml() instead.
-function ProfanityFilterSDK:Xml(data)
-  local EntityMod = require("entity.xml_entity")
   return EntityMod.new(self, data)
 end
 

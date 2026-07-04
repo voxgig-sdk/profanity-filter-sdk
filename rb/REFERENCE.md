@@ -98,7 +98,7 @@ same parameters as `direct()`. Raises on error.
 ## ContainsprofanityEntity
 
 ```ruby
-containsprofanity = client.containsprofanity
+containsprofanity = client.Containsprofanity
 ```
 
 ### Operations
@@ -108,7 +108,7 @@ containsprofanity = client.containsprofanity
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.containsprofanity.load({ "id" => "containsprofanity_id" })
+result = client.Containsprofanity.load({ "id" => "containsprofanity_id" })
 ```
 
 ### Common Methods
@@ -144,7 +144,7 @@ Return the entity name.
 ## JsonEntity
 
 ```ruby
-json = client.json
+json = client.Json
 ```
 
 ### Fields
@@ -160,7 +160,7 @@ json = client.json
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.json.load({ "id" => "json_id" })
+result = client.Json.load({ "id" => "json_id" })
 ```
 
 ### Common Methods
@@ -196,7 +196,7 @@ Return the entity name.
 ## PlainEntity
 
 ```ruby
-plain = client.plain
+plain = client.Plain
 ```
 
 ### Operations
@@ -206,7 +206,7 @@ plain = client.plain
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.plain.load({ "id" => "plain_id" })
+result = client.Plain.load({ "id" => "plain_id" })
 ```
 
 ### Common Methods
@@ -242,7 +242,7 @@ Return the entity name.
 ## XmlEntity
 
 ```ruby
-xml = client.xml
+xml = client.Xml
 ```
 
 ### Operations
@@ -252,7 +252,7 @@ xml = client.xml
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.xml.load({ "id" => "xml_id" })
+result = client.Xml.load({ "id" => "xml_id" })
 ```
 
 ### Common Methods

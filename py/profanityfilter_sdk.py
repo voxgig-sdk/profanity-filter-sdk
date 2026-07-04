@@ -220,73 +220,33 @@ class ProfanityFilterSDK:
         }
 
 
-    @property
-    def containsprofanity(self):
-        """Idiomatic facade: client.containsprofanity.list() / client.containsprofanity.load({"id": ...})."""
-        from entity.containsprofanity_entity import ContainsprofanityEntity
-        cached = getattr(self, "_containsprofanity", None)
-        if cached is None:
-            cached = ContainsprofanityEntity(self, None)
-            self._containsprofanity = cached
-        return cached
-
-    def Containsprofanity(self, data=None):
-        # Deprecated: use client.containsprofanity instead.
+    def Containsprofanity(self, data=None) -> "ContainsprofanityEntity":
+        """Entity factory: client.Containsprofanity().list({}) / client.Containsprofanity().load({"id": ...})."""
         from entity.containsprofanity_entity import ContainsprofanityEntity
         return ContainsprofanityEntity(self, data)
 
 
-    @property
-    def json(self):
-        """Idiomatic facade: client.json.list() / client.json.load({"id": ...})."""
-        from entity.json_entity import JsonEntity
-        cached = getattr(self, "_json", None)
-        if cached is None:
-            cached = JsonEntity(self, None)
-            self._json = cached
-        return cached
-
-    def Json(self, data=None):
-        # Deprecated: use client.json instead.
+    def Json(self, data=None) -> "JsonEntity":
+        """Entity factory: client.Json().list({}) / client.Json().load({"id": ...})."""
         from entity.json_entity import JsonEntity
         return JsonEntity(self, data)
 
 
-    @property
-    def plain(self):
-        """Idiomatic facade: client.plain.list() / client.plain.load({"id": ...})."""
-        from entity.plain_entity import PlainEntity
-        cached = getattr(self, "_plain", None)
-        if cached is None:
-            cached = PlainEntity(self, None)
-            self._plain = cached
-        return cached
-
-    def Plain(self, data=None):
-        # Deprecated: use client.plain instead.
+    def Plain(self, data=None) -> "PlainEntity":
+        """Entity factory: client.Plain().list({}) / client.Plain().load({"id": ...})."""
         from entity.plain_entity import PlainEntity
         return PlainEntity(self, data)
 
 
-    @property
-    def xml(self):
-        """Idiomatic facade: client.xml.list() / client.xml.load({"id": ...})."""
-        from entity.xml_entity import XmlEntity
-        cached = getattr(self, "_xml", None)
-        if cached is None:
-            cached = XmlEntity(self, None)
-            self._xml = cached
-        return cached
-
-    def Xml(self, data=None):
-        # Deprecated: use client.xml instead.
+    def Xml(self, data=None) -> "XmlEntity":
+        """Entity factory: client.Xml().list({}) / client.Xml().load({"id": ...})."""
         from entity.xml_entity import XmlEntity
         return XmlEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "ProfanityFilterSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -306,3 +266,12 @@ class ProfanityFilterSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.containsprofanity_entity import ContainsprofanityEntity
+    from entity.json_entity import JsonEntity
+    from entity.plain_entity import PlainEntity
+    from entity.xml_entity import XmlEntity
