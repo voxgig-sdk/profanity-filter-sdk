@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Plain,
+  PlainLoadMatch,
+} from '../ProfanityFilterTypes'
 
 // TODO: needs Entity superclass
-class PlainEntity extends ProfanityFilterEntityBase {
+class PlainEntity extends ProfanityFilterEntityBase<Plain> {
 
   constructor(client: ProfanityFilterSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class PlainEntity extends ProfanityFilterEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: PlainLoadMatch, ctrl?: Control): Promise<Plain> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class PlainEntity extends ProfanityFilterEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Plain> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

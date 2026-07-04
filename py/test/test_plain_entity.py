@@ -49,8 +49,7 @@ class TestPlainEntity:
         # LOAD
         plain_ref01_ent = client.Plain(None)
         plain_ref01_match_dt0 = {}
-        plain_ref01_data_dt0_loaded, err = plain_ref01_ent.load(plain_ref01_match_dt0, None)
-        assert err is None
+        plain_ref01_data_dt0_loaded = plain_ref01_ent.load(plain_ref01_match_dt0, None)
         assert plain_ref01_data_dt0_loaded is not None
 
 
@@ -91,7 +90,6 @@ def _plain_basic_setup(extra):
         "PROFANITYFILTER_TEST_PLAIN_ENTID": idmap,
         "PROFANITYFILTER_TEST_LIVE": "FALSE",
         "PROFANITYFILTER_TEST_EXPLAIN": "FALSE",
-        "PROFANITYFILTER_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +100,6 @@ def _plain_basic_setup(extra):
     if env.get("PROFANITYFILTER_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("PROFANITYFILTER_APIKEY"),
             },
             extra or {},
         ])

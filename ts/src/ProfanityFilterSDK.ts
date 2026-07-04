@@ -5,6 +5,8 @@ import { JsonEntity } from './entity/JsonEntity'
 import { PlainEntity } from './entity/PlainEntity'
 import { XmlEntity } from './entity/XmlEntity'
 
+export type * from './ProfanityFilterTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -205,24 +207,56 @@ class ProfanityFilterSDK {
 
 
 
+  _containsprofanity?: ContainsprofanityEntity
+
+  // Idiomatic facade: `client.containsprofanity.list()` / `client.containsprofanity.load({ id })`.
+  get containsprofanity(): ContainsprofanityEntity {
+    return (this._containsprofanity ??= new ContainsprofanityEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.containsprofanity` instead. */
   Containsprofanity(data?: any) {
     const self = this
     return new ContainsprofanityEntity(self,data)
   }
 
 
+  _json?: JsonEntity
+
+  // Idiomatic facade: `client.json.list()` / `client.json.load({ id })`.
+  get json(): JsonEntity {
+    return (this._json ??= new JsonEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.json` instead. */
   Json(data?: any) {
     const self = this
     return new JsonEntity(self,data)
   }
 
 
+  _plain?: PlainEntity
+
+  // Idiomatic facade: `client.plain.list()` / `client.plain.load({ id })`.
+  get plain(): PlainEntity {
+    return (this._plain ??= new PlainEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.plain` instead. */
   Plain(data?: any) {
     const self = this
     return new PlainEntity(self,data)
   }
 
 
+  _xml?: XmlEntity
+
+  // Idiomatic facade: `client.xml.list()` / `client.xml.load({ id })`.
+  get xml(): XmlEntity {
+    return (this._xml ??= new XmlEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.xml` instead. */
   Xml(data?: any) {
     const self = this
     return new XmlEntity(self,data)

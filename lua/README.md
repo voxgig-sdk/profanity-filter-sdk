@@ -9,12 +9,9 @@ The Lua SDK for the ProfanityFilter API — an entity-oriented client using Lua 
 
 
 ## Install
-```bash
-luarocks install voxgig-sdk-profanity-filter
-```
-
-If the module is not yet published, add the source directory to
-your `LUA_PATH`:
+This package is not yet published to LuaRocks. Install it from the
+GitHub release tag (`lua/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/profanity-filter-sdk/releases)),
+or add the source directory to your `LUA_PATH`:
 
 ```bash
 export LUA_PATH="path/to/lua/?.lua;path/to/lua/?/init.lua;;"
@@ -31,15 +28,13 @@ loading a specific record.
 ```lua
 local sdk = require("profanity-filter_sdk")
 
-local client = sdk.new({
-  apikey = os.getenv("PROFANITY-FILTER_APIKEY"),
-})
+local client = sdk.new()
 ```
 
 ### 3. Load a containsprofanity
 
 ```lua
-local result, err = client:Containsprofanity():load({ id = "example_id" })
+local result, err = client:containsprofanity():load({ id = "example_id" })
 if err then error(err) end
 print(result)
 ```
@@ -87,7 +82,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:ProfanityFilter():load({ id = "test01" })
+local result, err = client:containsprofanity():load({ id = "test01" })
 -- result contains mock response data
 ```
 
@@ -120,8 +115,7 @@ local client = sdk.new({
 Create a `.env.local` file at the project root:
 
 ```
-PROFANITY-FILTER_TEST_LIVE=TRUE
-PROFANITY-FILTER_APIKEY=<your-key>
+PROFANITY_FILTER_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -144,7 +138,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -251,7 +244,7 @@ API path: `/service/xml`
 
 ### Containsprofanity
 
-Create an instance: `const containsprofanity = client.Containsprofanity()`
+Create an instance: `const containsprofanity = client.containsprofanity`
 
 #### Operations
 
@@ -262,13 +255,13 @@ Create an instance: `const containsprofanity = client.Containsprofanity()`
 #### Example: Load
 
 ```ts
-const containsprofanity = await client.Containsprofanity().load({ id: 'containsprofanity_id' })
+const containsprofanity = await client.containsprofanity.load({ id: 'containsprofanity_id' })
 ```
 
 
 ### Json
 
-Create an instance: `const json = client.Json()`
+Create an instance: `const json = client.json`
 
 #### Operations
 
@@ -285,13 +278,13 @@ Create an instance: `const json = client.Json()`
 #### Example: Load
 
 ```ts
-const json = await client.Json().load({ id: 'json_id' })
+const json = await client.json.load({ id: 'json_id' })
 ```
 
 
 ### Plain
 
-Create an instance: `const plain = client.Plain()`
+Create an instance: `const plain = client.plain`
 
 #### Operations
 
@@ -302,13 +295,13 @@ Create an instance: `const plain = client.Plain()`
 #### Example: Load
 
 ```ts
-const plain = await client.Plain().load({ id: 'plain_id' })
+const plain = await client.plain.load({ id: 'plain_id' })
 ```
 
 
 ### Xml
 
-Create an instance: `const xml = client.Xml()`
+Create an instance: `const xml = client.xml`
 
 #### Operations
 
@@ -319,7 +312,7 @@ Create an instance: `const xml = client.Xml()`
 #### Example: Load
 
 ```ts
-const xml = await client.Xml().load({ id: 'xml_id' })
+const xml = await client.xml.load({ id: 'xml_id' })
 ```
 
 
@@ -394,11 +387,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local moon = client:Moon(nil)
-moon:load({ planet_id = "earth", id = "luna" }, nil)
+local containsprofanity = client:containsprofanity()
+containsprofanity:load({ id = "example_id" })
 
--- moon:data_get() now returns the loaded moon data
--- moon:match_get() returns the last match criteria
+-- containsprofanity:data_get() now returns the loaded containsprofanity data
+-- containsprofanity:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

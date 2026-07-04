@@ -74,14 +74,12 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'PROFANITYFILTER_TEST_PLAIN_ENTID': {},
     'PROFANITYFILTER_TEST_LIVE': 'FALSE',
-    'PROFANITYFILTER_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.PROFANITYFILTER_TEST_LIVE
 
   if (live) {
     const client = new ProfanityFilterSDK({
-      apikey: env.PROFANITYFILTER_APIKEY,
     })
 
     let idmap: any = env['PROFANITYFILTER_TEST_PLAIN_ENTID']

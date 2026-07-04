@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Xml,
+  XmlLoadMatch,
+} from '../ProfanityFilterTypes'
 
 // TODO: needs Entity superclass
-class XmlEntity extends ProfanityFilterEntityBase {
+class XmlEntity extends ProfanityFilterEntityBase<Xml> {
 
   constructor(client: ProfanityFilterSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class XmlEntity extends ProfanityFilterEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: XmlLoadMatch, ctrl?: Control): Promise<Xml> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class XmlEntity extends ProfanityFilterEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Xml> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

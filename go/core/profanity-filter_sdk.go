@@ -245,21 +245,33 @@ func (sdk *ProfanityFilterSDK) Direct(fetchargs map[string]any) (map[string]any,
 }
 
 
+// Containsprofanity returns a Containsprofanity entity bound to this client.
+// Idiomatic usage: client.Containsprofanity(nil).List(nil, nil) or
+// client.Containsprofanity(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *ProfanityFilterSDK) Containsprofanity(data map[string]any) ProfanityFilterEntity {
 	return NewContainsprofanityEntityFunc(sdk, data)
 }
 
 
+// Json returns a Json entity bound to this client.
+// Idiomatic usage: client.Json(nil).List(nil, nil) or
+// client.Json(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *ProfanityFilterSDK) Json(data map[string]any) ProfanityFilterEntity {
 	return NewJsonEntityFunc(sdk, data)
 }
 
 
+// Plain returns a Plain entity bound to this client.
+// Idiomatic usage: client.Plain(nil).List(nil, nil) or
+// client.Plain(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *ProfanityFilterSDK) Plain(data map[string]any) ProfanityFilterEntity {
 	return NewPlainEntityFunc(sdk, data)
 }
 
 
+// Xml returns a Xml entity bound to this client.
+// Idiomatic usage: client.Xml(nil).List(nil, nil) or
+// client.Xml(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *ProfanityFilterSDK) Xml(data map[string]any) ProfanityFilterEntity {
 	return NewXmlEntityFunc(sdk, data)
 }

@@ -42,8 +42,7 @@ class XmlEntityTest < Minitest::Test
     # LOAD
     xml_ref01_ent = client.Xml(nil)
     xml_ref01_match_dt0 = {}
-    xml_ref01_data_dt0_loaded, err = xml_ref01_ent.load(xml_ref01_match_dt0, nil)
-    assert_nil err
+    xml_ref01_data_dt0_loaded = xml_ref01_ent.load(xml_ref01_match_dt0, nil)
     assert !xml_ref01_data_dt0_loaded.nil?
 
   end
@@ -82,7 +81,6 @@ def xml_basic_setup(extra)
     "PROFANITYFILTER_TEST_XML_ENTID" => idmap,
     "PROFANITYFILTER_TEST_LIVE" => "FALSE",
     "PROFANITYFILTER_TEST_EXPLAIN" => "FALSE",
-    "PROFANITYFILTER_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,7 +92,6 @@ def xml_basic_setup(extra)
   if env["PROFANITYFILTER_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["PROFANITYFILTER_APIKEY"],
       },
       extra || {},
     ])

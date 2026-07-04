@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -146,7 +145,7 @@ Alias for `ProfanityFilterSDK.test()`.
 ## ContainsprofanityEntity
 
 ```ts
-const containsprofanity = client.Containsprofanity()
+const containsprofanity = client.containsprofanity
 ```
 
 ### Operations
@@ -156,7 +155,7 @@ const containsprofanity = client.Containsprofanity()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Containsprofanity().load({ id: 'containsprofanity_id' })
+const result = await client.containsprofanity.load({ id: 'containsprofanity_id' })
 ```
 
 ### Common Methods
@@ -190,7 +189,7 @@ Return a copy of the entity options.
 ## JsonEntity
 
 ```ts
-const json = client.Json()
+const json = client.json
 ```
 
 ### Fields
@@ -206,7 +205,7 @@ const json = client.Json()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Json().load({ id: 'json_id' })
+const result = await client.json.load({ id: 'json_id' })
 ```
 
 ### Common Methods
@@ -240,7 +239,7 @@ Return a copy of the entity options.
 ## PlainEntity
 
 ```ts
-const plain = client.Plain()
+const plain = client.plain
 ```
 
 ### Operations
@@ -250,7 +249,7 @@ const plain = client.Plain()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Plain().load({ id: 'plain_id' })
+const result = await client.plain.load({ id: 'plain_id' })
 ```
 
 ### Common Methods
@@ -284,7 +283,7 @@ Return a copy of the entity options.
 ## XmlEntity
 
 ```ts
-const xml = client.Xml()
+const xml = client.xml
 ```
 
 ### Operations
@@ -294,7 +293,7 @@ const xml = client.Xml()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Xml().load({ id: 'xml_id' })
+const result = await client.xml.load({ id: 'xml_id' })
 ```
 
 ### Common Methods

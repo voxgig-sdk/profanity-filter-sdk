@@ -49,8 +49,7 @@ class TestContainsprofanityEntity:
         # LOAD
         containsprofanity_ref01_ent = client.Containsprofanity(None)
         containsprofanity_ref01_match_dt0 = {}
-        containsprofanity_ref01_data_dt0_loaded, err = containsprofanity_ref01_ent.load(containsprofanity_ref01_match_dt0, None)
-        assert err is None
+        containsprofanity_ref01_data_dt0_loaded = containsprofanity_ref01_ent.load(containsprofanity_ref01_match_dt0, None)
         assert containsprofanity_ref01_data_dt0_loaded is not None
 
 
@@ -91,7 +90,6 @@ def _containsprofanity_basic_setup(extra):
         "PROFANITYFILTER_TEST_CONTAINSPROFANITY_ENTID": idmap,
         "PROFANITYFILTER_TEST_LIVE": "FALSE",
         "PROFANITYFILTER_TEST_EXPLAIN": "FALSE",
-        "PROFANITYFILTER_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +100,6 @@ def _containsprofanity_basic_setup(extra):
     if env.get("PROFANITYFILTER_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("PROFANITYFILTER_APIKEY"),
             },
             extra or {},
         ])

@@ -19,7 +19,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `table` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -96,7 +95,7 @@ same parameters as `direct()`.
 ## ContainsprofanityEntity
 
 ```lua
-local containsprofanity = client:Containsprofanity(nil)
+local containsprofanity = client:containsprofanity(nil)
 ```
 
 ### Operations
@@ -106,7 +105,7 @@ local containsprofanity = client:Containsprofanity(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Containsprofanity():load({ id = "containsprofanity_id" })
+local result, err = client:containsprofanity():load({ id = "containsprofanity_id" })
 ```
 
 ### Common Methods
@@ -142,7 +141,7 @@ Return the entity name.
 ## JsonEntity
 
 ```lua
-local json = client:Json(nil)
+local json = client:json(nil)
 ```
 
 ### Fields
@@ -158,7 +157,7 @@ local json = client:Json(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Json():load({ id = "json_id" })
+local result, err = client:json():load({ id = "json_id" })
 ```
 
 ### Common Methods
@@ -194,7 +193,7 @@ Return the entity name.
 ## PlainEntity
 
 ```lua
-local plain = client:Plain(nil)
+local plain = client:plain(nil)
 ```
 
 ### Operations
@@ -204,7 +203,7 @@ local plain = client:Plain(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Plain():load({ id = "plain_id" })
+local result, err = client:plain():load({ id = "plain_id" })
 ```
 
 ### Common Methods
@@ -240,7 +239,7 @@ Return the entity name.
 ## XmlEntity
 
 ```lua
-local xml = client:Xml(nil)
+local xml = client:xml(nil)
 ```
 
 ### Operations
@@ -250,7 +249,7 @@ local xml = client:Xml(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Xml():load({ id = "xml_id" })
+local result, err = client:xml():load({ id = "xml_id" })
 ```
 
 ### Common Methods

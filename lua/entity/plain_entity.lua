@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch PlainLoadMatch
+---@param ctrl? table
+---@return Plain
+---@return string? err
 function PlainEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

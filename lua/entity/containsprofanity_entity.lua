@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch ContainsprofanityLoadMatch
+---@param ctrl? table
+---@return Containsprofanity
+---@return string? err
 function ContainsprofanityEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

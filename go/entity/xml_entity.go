@@ -85,6 +85,27 @@ func (e *XmlEntity) Match(args ...any) any {
 	return out
 }
 
+// DataTyped is the statically-typed accessor for this entity's data. With no
+// argument it returns the current data as an Xml; with an argument it
+// sets the data and returns the stored value. It delegates to the untyped Data
+// (identical runtime) and converts at the typed boundary.
+func (e *XmlEntity) DataTyped(data ...Xml) Xml {
+	if len(data) > 0 {
+		return typedFrom[Xml](e.Data(asMap(data[0])))
+	}
+	return typedFrom[Xml](e.Data())
+}
+
+// MatchTyped mirrors DataTyped for the entity's match filter. The match is a
+// partial of the entity, so it round-trips through Xml (all fields
+// optional at the wire level).
+func (e *XmlEntity) MatchTyped(match ...Xml) Xml {
+	if len(match) > 0 {
+		return typedFrom[Xml](e.Match(asMap(match[0])))
+	}
+	return typedFrom[Xml](e.Match())
+}
+
 
 func (e *XmlEntity) Load(reqmatch map[string]any, ctrl map[string]any) (any, error) {
 	utility := e.utility
@@ -109,6 +130,17 @@ func (e *XmlEntity) Load(reqmatch map[string]any, ctrl map[string]any) (any, err
 			}
 		}
 	})
+}
+
+// LoadTyped is the statically-typed variant of Load: it takes an
+// XmlLoadMatch and returns an Xml. It delegates to the untyped
+// Load (identical runtime) and converts at the typed boundary.
+func (e *XmlEntity) LoadTyped(reqmatch XmlLoadMatch, ctrl map[string]any) (Xml, error) {
+	res, err := e.Load(asMap(reqmatch), ctrl)
+	if err != nil {
+		return Xml{}, err
+	}
+	return typedFrom[Xml](res), nil
 }
 
 

@@ -45,6 +45,7 @@ class XmlEntity
     end
   end
 
+  # @return [Xml, Hash] the current Xml data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,12 +58,18 @@ class XmlEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of Xml fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
   end
 
   
+  # Load a single Xml.
+  #
+  # @param reqmatch [XmlLoadMatch, Hash, nil] match criteria (id/query fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Xml, Hash] the loaded Xml; raises ProfanityFilterError on failure
   def load(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

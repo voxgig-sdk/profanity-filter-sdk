@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Json,
+  JsonLoadMatch,
+} from '../ProfanityFilterTypes'
 
 // TODO: needs Entity superclass
-class JsonEntity extends ProfanityFilterEntityBase {
+class JsonEntity extends ProfanityFilterEntityBase<Json> {
 
   constructor(client: ProfanityFilterSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class JsonEntity extends ProfanityFilterEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: JsonLoadMatch, ctrl?: Control): Promise<Json> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class JsonEntity extends ProfanityFilterEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Json> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

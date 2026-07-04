@@ -42,8 +42,7 @@ class PlainEntityTest < Minitest::Test
     # LOAD
     plain_ref01_ent = client.Plain(nil)
     plain_ref01_match_dt0 = {}
-    plain_ref01_data_dt0_loaded, err = plain_ref01_ent.load(plain_ref01_match_dt0, nil)
-    assert_nil err
+    plain_ref01_data_dt0_loaded = plain_ref01_ent.load(plain_ref01_match_dt0, nil)
     assert !plain_ref01_data_dt0_loaded.nil?
 
   end
@@ -82,7 +81,6 @@ def plain_basic_setup(extra)
     "PROFANITYFILTER_TEST_PLAIN_ENTID" => idmap,
     "PROFANITYFILTER_TEST_LIVE" => "FALSE",
     "PROFANITYFILTER_TEST_EXPLAIN" => "FALSE",
-    "PROFANITYFILTER_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,7 +92,6 @@ def plain_basic_setup(extra)
   if env["PROFANITYFILTER_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["PROFANITYFILTER_APIKEY"],
       },
       extra || {},
     ])

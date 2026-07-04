@@ -144,16 +144,23 @@ class ProfanityFilterSDK:
 
         _, err = utility.prepare_auth(ctx)
         if err is not None:
-            return None, err
+            raise err
 
-        return utility.make_fetch_def(ctx)
+        fetchdef, err = utility.make_fetch_def(ctx)
+        if err is not None:
+            raise err
+
+        return fetchdef
 
     def direct(self, fetchargs=None):
         utility = self._utility
 
-        fetchdef, err = self.prepare(fetchargs)
-        if err is not None:
-            return {"ok": False, "err": err}, None
+        try:
+            fetchdef = self.prepare(fetchargs)
+        except Exception as err:
+            # direct() is the raw-HTTP escape hatch: it never raises, it
+            # returns a result object callers branch on via result["ok"].
+            return {"ok": False, "err": err}
 
         if fetchargs is None:
             fetchargs = {}
@@ -170,13 +177,13 @@ class ProfanityFilterSDK:
         fetched, fetch_err = utility.fetcher(ctx, url, fetchdef)
 
         if fetch_err is not None:
-            return {"ok": False, "err": fetch_err}, None
+            return {"ok": False, "err": fetch_err}
 
         if fetched is None:
             return {
                 "ok": False,
                 "err": ctx.make_error("direct_no_response", "response: undefined"),
-            }, None
+            }
 
         if isinstance(fetched, dict):
             status = helpers.to_int(vs.getprop(fetched, "status"))
@@ -205,30 +212,74 @@ class ProfanityFilterSDK:
                 "status": status,
                 "headers": headers,
                 "data": json_data,
-            }, None
+            }
 
         return {
             "ok": False,
             "err": ctx.make_error("direct_invalid", "invalid response type"),
-        }, None
+        }
 
+
+    @property
+    def containsprofanity(self):
+        """Idiomatic facade: client.containsprofanity.list() / client.containsprofanity.load({"id": ...})."""
+        from entity.containsprofanity_entity import ContainsprofanityEntity
+        cached = getattr(self, "_containsprofanity", None)
+        if cached is None:
+            cached = ContainsprofanityEntity(self, None)
+            self._containsprofanity = cached
+        return cached
 
     def Containsprofanity(self, data=None):
+        # Deprecated: use client.containsprofanity instead.
         from entity.containsprofanity_entity import ContainsprofanityEntity
         return ContainsprofanityEntity(self, data)
 
 
+    @property
+    def json(self):
+        """Idiomatic facade: client.json.list() / client.json.load({"id": ...})."""
+        from entity.json_entity import JsonEntity
+        cached = getattr(self, "_json", None)
+        if cached is None:
+            cached = JsonEntity(self, None)
+            self._json = cached
+        return cached
+
     def Json(self, data=None):
+        # Deprecated: use client.json instead.
         from entity.json_entity import JsonEntity
         return JsonEntity(self, data)
 
 
+    @property
+    def plain(self):
+        """Idiomatic facade: client.plain.list() / client.plain.load({"id": ...})."""
+        from entity.plain_entity import PlainEntity
+        cached = getattr(self, "_plain", None)
+        if cached is None:
+            cached = PlainEntity(self, None)
+            self._plain = cached
+        return cached
+
     def Plain(self, data=None):
+        # Deprecated: use client.plain instead.
         from entity.plain_entity import PlainEntity
         return PlainEntity(self, data)
 
 
+    @property
+    def xml(self):
+        """Idiomatic facade: client.xml.list() / client.xml.load({"id": ...})."""
+        from entity.xml_entity import XmlEntity
+        cached = getattr(self, "_xml", None)
+        if cached is None:
+            cached = XmlEntity(self, None)
+            self._xml = cached
+        return cached
+
     def Xml(self, data=None):
+        # Deprecated: use client.xml instead.
         from entity.xml_entity import XmlEntity
         return XmlEntity(self, data)
 

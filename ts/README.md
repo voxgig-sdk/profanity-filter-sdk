@@ -9,9 +9,12 @@ The TypeScript SDK for the ProfanityFilter API — a type-safe, entity-oriented 
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/profanity-filter
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/profanity-filter-sdk/releases](https://github.com/voxgig-sdk/profanity-filter-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,15 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { ProfanityFilterSDK } from 'profanity-filter'
+import { ProfanityFilterSDK } from '@voxgig-sdk/profanity-filter'
 
-const client = new ProfanityFilterSDK({
-  apikey: process.env.PROFANITY-FILTER_APIKEY,
-})
+const client = new ProfanityFilterSDK()
 ```
 
 ### 3. Load a containsprofanity
 
 ```ts
-const result = await client.Containsprofanity().load({ id: 'example_id' })
+const result = await client.containsprofanity.load({ id: 'example_id' })
 
 if (result.ok) {
   console.log(result.data)
@@ -79,7 +80,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = ProfanityFilterSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.containsprofanity.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -87,7 +88,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new ProfanityFilterSDK({ apikey: '...' })
+const client = new ProfanityFilterSDK()
 const testClient = client.tester()
 ```
 
@@ -96,7 +97,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.containsprofanity
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -123,7 +124,6 @@ const logger = {
 }
 
 const client = new ProfanityFilterSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -133,8 +133,7 @@ const client = new ProfanityFilterSDK({
 Create a `.env.local` file at the project root:
 
 ```
-PROFANITY-FILTER_TEST_LIVE=TRUE
-PROFANITY-FILTER_APIKEY=<your-key>
+PROFANITY_FILTER_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -152,7 +151,6 @@ cd ts && npm test
 
 ```ts
 new ProfanityFilterSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -163,7 +161,6 @@ new ProfanityFilterSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -296,7 +293,7 @@ API path: `/service/xml`
 
 ### Containsprofanity
 
-Create an instance: `const containsprofanity = client.Containsprofanity()`
+Create an instance: `const containsprofanity = client.containsprofanity`
 
 #### Operations
 
@@ -307,13 +304,13 @@ Create an instance: `const containsprofanity = client.Containsprofanity()`
 #### Example: Load
 
 ```ts
-const containsprofanity = await client.Containsprofanity().load({ id: 'containsprofanity_id' })
+const containsprofanity = await client.containsprofanity.load({ id: 'containsprofanity_id' })
 ```
 
 
 ### Json
 
-Create an instance: `const json = client.Json()`
+Create an instance: `const json = client.json`
 
 #### Operations
 
@@ -330,13 +327,13 @@ Create an instance: `const json = client.Json()`
 #### Example: Load
 
 ```ts
-const json = await client.Json().load({ id: 'json_id' })
+const json = await client.json.load({ id: 'json_id' })
 ```
 
 
 ### Plain
 
-Create an instance: `const plain = client.Plain()`
+Create an instance: `const plain = client.plain`
 
 #### Operations
 
@@ -347,13 +344,13 @@ Create an instance: `const plain = client.Plain()`
 #### Example: Load
 
 ```ts
-const plain = await client.Plain().load({ id: 'plain_id' })
+const plain = await client.plain.load({ id: 'plain_id' })
 ```
 
 
 ### Xml
 
-Create an instance: `const xml = client.Xml()`
+Create an instance: `const xml = client.xml`
 
 #### Operations
 
@@ -364,7 +361,7 @@ Create an instance: `const xml = client.Xml()`
 #### Example: Load
 
 ```ts
-const xml = await client.Xml().load({ id: 'xml_id' })
+const xml = await client.xml.load({ id: 'xml_id' })
 ```
 
 
@@ -425,7 +422,7 @@ profanity-filter/
 Import the SDK from the package root:
 
 ```ts
-import { ProfanityFilterSDK } from 'profanity-filter'
+import { ProfanityFilterSDK } from '@voxgig-sdk/profanity-filter'
 ```
 
 ### Entity state
@@ -435,11 +432,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const containsprofanity = client.containsprofanity
+await containsprofanity.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// containsprofanity.data() now returns the loaded containsprofanity data
+// containsprofanity.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

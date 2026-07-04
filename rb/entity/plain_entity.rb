@@ -45,6 +45,7 @@ class PlainEntity
     end
   end
 
+  # @return [Plain, Hash] the current Plain data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,12 +58,18 @@ class PlainEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of Plain fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
   end
 
   
+  # Load a single Plain.
+  #
+  # @param reqmatch [PlainLoadMatch, Hash, nil] match criteria (id/query fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Plain, Hash] the loaded Plain; raises ProfanityFilterError on failure
   def load(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

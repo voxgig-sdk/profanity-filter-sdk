@@ -49,8 +49,7 @@ class TestXmlEntity:
         # LOAD
         xml_ref01_ent = client.Xml(None)
         xml_ref01_match_dt0 = {}
-        xml_ref01_data_dt0_loaded, err = xml_ref01_ent.load(xml_ref01_match_dt0, None)
-        assert err is None
+        xml_ref01_data_dt0_loaded = xml_ref01_ent.load(xml_ref01_match_dt0, None)
         assert xml_ref01_data_dt0_loaded is not None
 
 
@@ -91,7 +90,6 @@ def _xml_basic_setup(extra):
         "PROFANITYFILTER_TEST_XML_ENTID": idmap,
         "PROFANITYFILTER_TEST_LIVE": "FALSE",
         "PROFANITYFILTER_TEST_EXPLAIN": "FALSE",
-        "PROFANITYFILTER_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +100,6 @@ def _xml_basic_setup(extra):
     if env.get("PROFANITYFILTER_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("PROFANITYFILTER_APIKEY"),
             },
             extra or {},
         ])

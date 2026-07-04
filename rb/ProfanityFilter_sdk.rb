@@ -13,6 +13,9 @@ require_relative 'config'
 require_relative 'feature/base_feature'
 require_relative 'features'
 
+# Load typed models (Struct value objects).
+require_relative 'ProfanityFilter_types'
+
 
 class ProfanityFilterSDK
   attr_accessor :mode, :features, :options
@@ -131,7 +134,7 @@ class ProfanityFilterSDK
     end
 
     _, err = utility.prepare_auth.call(ctx)
-    return nil, err if err
+    raise err if err
 
     utility.make_fetch_def.call(ctx)
   end
@@ -139,8 +142,14 @@ class ProfanityFilterSDK
   def direct(fetchargs = {})
     utility = @_utility
 
-    fetchdef, err = prepare(fetchargs)
-    return { "ok" => false, "err" => err }, nil if err
+    # direct() is the raw-HTTP escape hatch: it always returns a result hash
+    # ({ "ok" => ..., ... }) and never raises. prepare() raises on error, so
+    # trap that and surface it in the hash.
+    begin
+      fetchdef = prepare(fetchargs)
+    rescue ProfanityFilterError => err
+      return { "ok" => false, "err" => err }
+    end
 
     fetchargs ||= {}
     ctrl = ProfanityFilterHelpers.to_map(VoxgigStruct.getprop(fetchargs, "ctrl")) || {}
@@ -153,13 +162,13 @@ class ProfanityFilterSDK
     url = fetchdef["url"] || ""
     fetched, fetch_err = utility.fetcher.call(ctx, url, fetchdef)
 
-    return { "ok" => false, "err" => fetch_err }, nil if fetch_err
+    return { "ok" => false, "err" => fetch_err } if fetch_err
 
     if fetched.nil?
       return {
         "ok" => false,
         "err" => ctx.make_error("direct_no_response", "response: undefined"),
-      }, nil
+      }
     end
 
     if fetched.is_a?(Hash)
@@ -189,34 +198,62 @@ class ProfanityFilterSDK
         "status" => status,
         "headers" => headers,
         "data" => json_data,
-      }, nil
+      }
     end
 
     return {
       "ok" => false,
       "err" => ctx.make_error("direct_invalid", "invalid response type"),
-    }, nil
+    }
   end
 
 
+  # Idiomatic facade: client.containsprofanity.list / client.containsprofanity.load({ "id" => ... })
+  def containsprofanity
+    require_relative 'entity/containsprofanity_entity'
+    @containsprofanity ||= ContainsprofanityEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.containsprofanity instead.
   def Containsprofanity(data = nil)
     require_relative 'entity/containsprofanity_entity'
     ContainsprofanityEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.json.list / client.json.load({ "id" => ... })
+  def json
+    require_relative 'entity/json_entity'
+    @json ||= JsonEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.json instead.
   def Json(data = nil)
     require_relative 'entity/json_entity'
     JsonEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.plain.list / client.plain.load({ "id" => ... })
+  def plain
+    require_relative 'entity/plain_entity'
+    @plain ||= PlainEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.plain instead.
   def Plain(data = nil)
     require_relative 'entity/plain_entity'
     PlainEntity.new(self, data)
   end
 
 
+  # Idiomatic facade: client.xml.list / client.xml.load({ "id" => ... })
+  def xml
+    require_relative 'entity/xml_entity'
+    @xml ||= XmlEntity.new(self, nil)
+  end
+
+  # Deprecated: use client.xml instead.
   def Xml(data = nil)
     require_relative 'entity/xml_entity'
     XmlEntity.new(self, data)

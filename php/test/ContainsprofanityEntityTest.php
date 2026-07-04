@@ -49,8 +49,7 @@ class ContainsprofanityEntityTest extends TestCase
         // LOAD
         $containsprofanity_ref01_ent = $client->Containsprofanity(null);
         $containsprofanity_ref01_match_dt0 = [];
-        [$containsprofanity_ref01_data_dt0_loaded, $err] = $containsprofanity_ref01_ent->load($containsprofanity_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $containsprofanity_ref01_data_dt0_loaded = $containsprofanity_ref01_ent->load($containsprofanity_ref01_match_dt0, null);
         $this->assertNotNull($containsprofanity_ref01_data_dt0_loaded);
 
     }
@@ -85,7 +84,6 @@ function containsprofanity_basic_setup($extra)
         "PROFANITYFILTER_TEST_CONTAINSPROFANITY_ENTID" => $idmap,
         "PROFANITYFILTER_TEST_LIVE" => "FALSE",
         "PROFANITYFILTER_TEST_EXPLAIN" => "FALSE",
-        "PROFANITYFILTER_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,7 +95,6 @@ function containsprofanity_basic_setup($extra)
     if ($env["PROFANITYFILTER_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["PROFANITYFILTER_APIKEY"],
             ],
             $extra ?? [],
         ]);
