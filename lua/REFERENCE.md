@@ -105,7 +105,7 @@ local containsprofanity = client:Containsprofanity(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Containsprofanity():load({ id = "containsprofanity_id" })
+local result, err = client:Containsprofanity():load()
 ```
 
 ### Common Methods
@@ -148,7 +148,7 @@ local json = client:Json(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `result` | ``$STRING`` | No |  |
+| `result` | `string` | No |  |
 
 ### Operations
 
@@ -157,7 +157,7 @@ local json = client:Json(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Json():load({ id = "json_id" })
+local result, err = client:Json():load()
 ```
 
 ### Common Methods
@@ -203,7 +203,7 @@ local plain = client:Plain(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Plain():load({ id = "plain_id" })
+local result, err = client:Plain():load()
 ```
 
 ### Common Methods
@@ -249,7 +249,7 @@ local xml = client:Xml(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Xml():load({ id = "xml_id" })
+local result, err = client:Xml():load()
 ```
 
 ### Common Methods

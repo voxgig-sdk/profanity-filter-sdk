@@ -12,8 +12,7 @@ import "encoding/json"
 type Containsprofanity struct {
 }
 
-// ContainsprofanityLoadMatch mirrors the containsprofanity fields as an all-optional match
-// filter (Go analog of Partial<Containsprofanity>).
+// ContainsprofanityLoadMatch is the typed request payload for Containsprofanity.LoadTyped.
 type ContainsprofanityLoadMatch struct {
 }
 
@@ -22,8 +21,7 @@ type Json struct {
 	Result *string `json:"result,omitempty"`
 }
 
-// JsonLoadMatch mirrors the json fields as an all-optional match
-// filter (Go analog of Partial<Json>).
+// JsonLoadMatch is the typed request payload for Json.LoadTyped.
 type JsonLoadMatch struct {
 	Result *string `json:"result,omitempty"`
 }
@@ -32,8 +30,7 @@ type JsonLoadMatch struct {
 type Plain struct {
 }
 
-// PlainLoadMatch mirrors the plain fields as an all-optional match
-// filter (Go analog of Partial<Plain>).
+// PlainLoadMatch is the typed request payload for Plain.LoadTyped.
 type PlainLoadMatch struct {
 }
 
@@ -41,8 +38,7 @@ type PlainLoadMatch struct {
 type Xml struct {
 }
 
-// XmlLoadMatch mirrors the xml fields as an all-optional match
-// filter (Go analog of Partial<Xml>).
+// XmlLoadMatch is the typed request payload for Xml.LoadTyped.
 type XmlLoadMatch struct {
 }
 

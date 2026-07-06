@@ -17,7 +17,7 @@ class Containsprofanity
 {
 }
 
-/** Match filter for Containsprofanity#load (any subset of Containsprofanity fields). */
+/** Request payload for Containsprofanity#load. */
 class ContainsprofanityLoadMatch
 {
 }
@@ -28,7 +28,7 @@ class Json
     public ?string $result = null;
 }
 
-/** Match filter for Json#load (any subset of Json fields). */
+/** Request payload for Json#load. */
 class JsonLoadMatch
 {
     public ?string $result = null;
@@ -39,7 +39,7 @@ class Plain
 {
 }
 
-/** Match filter for Plain#load (any subset of Plain fields). */
+/** Request payload for Plain#load. */
 class PlainLoadMatch
 {
 }
@@ -49,7 +49,7 @@ class Xml
 {
 }
 
-/** Match filter for Xml#load (any subset of Xml fields). */
+/** Request payload for Xml#load. */
 class XmlLoadMatch
 {
 }

@@ -112,7 +112,7 @@ containsprofanity := client.Containsprofanity(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Containsprofanity(nil).Load(map[string]any{"id": "containsprofanity_id"}, nil)
+result, err := client.Containsprofanity(nil).Load(nil, nil)
 ```
 
 ### Common Methods
@@ -149,7 +149,7 @@ json := client.Json(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `result` | ``$STRING`` | No |  |
+| `result` | `string` | No |  |
 
 ### Operations
 
@@ -158,7 +158,7 @@ json := client.Json(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Json(nil).Load(map[string]any{"id": "json_id"}, nil)
+result, err := client.Json(nil).Load(nil, nil)
 ```
 
 ### Common Methods
@@ -198,7 +198,7 @@ plain := client.Plain(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Plain(nil).Load(map[string]any{"id": "plain_id"}, nil)
+result, err := client.Plain(nil).Load(nil, nil)
 ```
 
 ### Common Methods
@@ -238,7 +238,7 @@ xml := client.Xml(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Xml(nil).Load(map[string]any{"id": "xml_id"}, nil)
+result, err := client.Xml(nil).Load(nil, nil)
 ```
 
 ### Common Methods

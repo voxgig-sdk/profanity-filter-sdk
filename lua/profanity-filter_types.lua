@@ -14,6 +14,7 @@
 ---@field result? string
 
 ---@class JsonLoadMatch
+---@field result? string
 
 ---@class Plain
 

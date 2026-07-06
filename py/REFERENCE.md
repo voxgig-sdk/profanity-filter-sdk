@@ -8,7 +8,7 @@ Complete API reference for the ProfanityFilter Python SDK.
 ### Constructor
 
 ```python
-from profanity-filter_sdk import ProfanityFilterSDK
+from profanityfilter_sdk import ProfanityFilterSDK
 
 client = ProfanityFilterSDK(options)
 ```
@@ -102,7 +102,7 @@ containsprofanity = client.Containsprofanity()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Containsprofanity().load({"id": "containsprofanity_id"})
+result = client.Containsprofanity().load()
 ```
 
 ### Common Methods
@@ -144,7 +144,7 @@ json = client.Json()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `result` | ``$STRING`` | No |  |
+| `result` | `str` | No |  |
 
 ### Operations
 
@@ -153,7 +153,7 @@ json = client.Json()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Json().load({"id": "json_id"})
+result = client.Json().load()
 ```
 
 ### Common Methods
@@ -198,7 +198,7 @@ plain = client.Plain()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Plain().load({"id": "plain_id"})
+result = client.Plain().load()
 ```
 
 ### Common Methods
@@ -243,7 +243,7 @@ xml = client.Xml()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Xml().load({"id": "xml_id"})
+result = client.Xml().load()
 ```
 
 ### Common Methods

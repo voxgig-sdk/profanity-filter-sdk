@@ -12,7 +12,7 @@
 class Containsprofanity
 end
 
-# Match filter for Containsprofanity#load (any subset of Containsprofanity fields).
+# Request payload for Containsprofanity#load.
 class ContainsprofanityLoadMatch
 end
 
@@ -25,7 +25,7 @@ Json = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Json#load (any subset of Json fields).
+# Request payload for Json#load.
 #
 # @!attribute [rw] result
 #   @return [String, nil]
@@ -38,7 +38,7 @@ JsonLoadMatch = Struct.new(
 class Plain
 end
 
-# Match filter for Plain#load (any subset of Plain fields).
+# Request payload for Plain#load.
 class PlainLoadMatch
 end
 
@@ -46,7 +46,7 @@ end
 class Xml
 end
 
-# Match filter for Xml#load (any subset of Xml fields).
+# Request payload for Xml#load.
 class XmlLoadMatch
 end
 

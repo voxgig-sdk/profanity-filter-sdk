@@ -221,25 +221,25 @@ class ProfanityFilterSDK:
 
 
     def Containsprofanity(self, data=None) -> "ContainsprofanityEntity":
-        """Entity factory: client.Containsprofanity().list({}) / client.Containsprofanity().load({"id": ...})."""
+        """Entity factory: client.Containsprofanity().list() / client.Containsprofanity().load({"id": ...})."""
         from entity.containsprofanity_entity import ContainsprofanityEntity
         return ContainsprofanityEntity(self, data)
 
 
     def Json(self, data=None) -> "JsonEntity":
-        """Entity factory: client.Json().list({}) / client.Json().load({"id": ...})."""
+        """Entity factory: client.Json().list() / client.Json().load({"id": ...})."""
         from entity.json_entity import JsonEntity
         return JsonEntity(self, data)
 
 
     def Plain(self, data=None) -> "PlainEntity":
-        """Entity factory: client.Plain().list({}) / client.Plain().load({"id": ...})."""
+        """Entity factory: client.Plain().list() / client.Plain().load({"id": ...})."""
         from entity.plain_entity import PlainEntity
         return PlainEntity(self, data)
 
 
     def Xml(self, data=None) -> "XmlEntity":
-        """Entity factory: client.Xml().list({}) / client.Xml().load({"id": ...})."""
+        """Entity factory: client.Xml().list() / client.Xml().load({"id": ...})."""
         from entity.xml_entity import XmlEntity
         return XmlEntity(self, data)
 

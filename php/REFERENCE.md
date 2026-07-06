@@ -8,7 +8,7 @@ Complete API reference for the ProfanityFilter PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/profanity-filter_sdk.php';
+require_once __DIR__ . '/profanityfilter_sdk.php';
 
 $client = new ProfanityFilterSDK($options);
 ```
@@ -57,11 +57,11 @@ Create a new `PlainEntity` instance. Pass `null` for no initial data.
 
 Create a new `XmlEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): ProfanityFilterUtility`
 
 Return a copy of the SDK utility object.
 
@@ -107,24 +107,24 @@ $containsprofanity = $client->Containsprofanity();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->Containsprofanity()->load(["id" => "containsprofanity_id"]);
+$result = $client->Containsprofanity()->load();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -133,7 +133,7 @@ Set the entity match criteria.
 Create a new `ContainsprofanityEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -150,7 +150,7 @@ $json = $client->Json();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `result` | ``$STRING`` | No |  |
+| `result` | `string` | No |  |
 
 ### Operations
 
@@ -159,24 +159,24 @@ $json = $client->Json();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->Json()->load(["id" => "json_id"]);
+$result = $client->Json()->load();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -185,7 +185,7 @@ Set the entity match criteria.
 Create a new `JsonEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -205,24 +205,24 @@ $plain = $client->Plain();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->Plain()->load(["id" => "plain_id"]);
+$result = $client->Plain()->load();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -231,7 +231,7 @@ Set the entity match criteria.
 Create a new `PlainEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -251,24 +251,24 @@ $xml = $client->Xml();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->Xml()->load(["id" => "xml_id"]);
+$result = $client->Xml()->load();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -277,7 +277,7 @@ Set the entity match criteria.
 Create a new `XmlEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

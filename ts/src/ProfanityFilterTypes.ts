@@ -8,21 +8,26 @@
 export interface Containsprofanity {
 }
 
-export type ContainsprofanityLoadMatch = Partial<Containsprofanity>
+export interface ContainsprofanityLoadMatch {
+}
 
 export interface Json {
   result?: string
 }
 
-export type JsonLoadMatch = Partial<Json>
+export interface JsonLoadMatch {
+  result?: string
+}
 
 export interface Plain {
 }
 
-export type PlainLoadMatch = Partial<Plain>
+export interface PlainLoadMatch {
+}
 
 export interface Xml {
 }
 
-export type XmlLoadMatch = Partial<Xml>
+export interface XmlLoadMatch {
+}
 

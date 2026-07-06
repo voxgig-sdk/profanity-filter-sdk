@@ -155,7 +155,7 @@ const containsprofanity = client.Containsprofanity()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Containsprofanity().load({ id: 'containsprofanity_id' })
+const result = await client.Containsprofanity().load()
 ```
 
 ### Common Methods
@@ -196,7 +196,7 @@ const json = client.Json()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `result` | ``$STRING`` | No |  |
+| `result` | `string` | No |  |
 
 ### Operations
 
@@ -205,7 +205,7 @@ const json = client.Json()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Json().load({ id: 'json_id' })
+const result = await client.Json().load()
 ```
 
 ### Common Methods
@@ -249,7 +249,7 @@ const plain = client.Plain()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Plain().load({ id: 'plain_id' })
+const result = await client.Plain().load()
 ```
 
 ### Common Methods
@@ -293,7 +293,7 @@ const xml = client.Xml()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Xml().load({ id: 'xml_id' })
+const result = await client.Xml().load()
 ```
 
 ### Common Methods
