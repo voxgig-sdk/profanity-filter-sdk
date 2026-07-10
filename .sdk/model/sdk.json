@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -538,14 +535,17 @@
           "name": "PurgoMalum Support"
         },
         "description": "PurgoMalum is a free RESTful web service that filters and removes profanity and unwanted text from input. It supports customization options and can return the results in plain text, XML, or JSON formats.",
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production server",
             "url": "https://www.purgomalum.com"
           }
         ],
+        "summary": "PurgoMalum is a free RESTful web service that filters and removes profanity and unwanted text from input.",
         "title": "Profanity Filter API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://www.purgomalum.com/"
       },
       "option": {},
       "target": {
@@ -598,6 +598,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -648,6 +651,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

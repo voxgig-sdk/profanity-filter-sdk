@@ -103,6 +103,7 @@ same parameters as `Direct()`.
 
 ```go
 containsprofanity := client.Containsprofanity(nil)
+fmt.Println(containsprofanity.GetName()) // "containsprofanity"
 ```
 
 ### Operations
@@ -113,6 +114,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.Containsprofanity(nil).Load(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -143,6 +148,7 @@ Return the entity name.
 
 ```go
 json := client.Json(nil)
+fmt.Println(json.GetName()) // "json"
 ```
 
 ### Fields
@@ -159,6 +165,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.Json(nil).Load(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -189,6 +199,7 @@ Return the entity name.
 
 ```go
 plain := client.Plain(nil)
+fmt.Println(plain.GetName()) // "plain"
 ```
 
 ### Operations
@@ -199,6 +210,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.Plain(nil).Load(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -229,6 +244,7 @@ Return the entity name.
 
 ```go
 xml := client.Xml(nil)
+fmt.Println(xml.GetName()) // "xml"
 ```
 
 ### Operations
@@ -239,6 +255,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.Xml(nil).Load(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods

@@ -16,9 +16,9 @@ main: {
           url: "https://www.purgomalum.com"
         }
       ]
+      summary: "PurgoMalum is a free RESTful web service that filters and removes profanity and unwanted text from input."
       title: "Profanity Filter API"
       version: "1.0.0"
+      website: "https://www.purgomalum.com/"
     }
   }
-}
-
