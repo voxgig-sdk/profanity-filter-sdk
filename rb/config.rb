@@ -56,6 +56,7 @@ module ProfanityFilterConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/service/containsprofanity",
                   "parts" => [
@@ -136,6 +137,7 @@ module ProfanityFilterConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/service/json",
                   "parts" => [
@@ -210,6 +212,7 @@ module ProfanityFilterConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/service/plain",
                   "parts" => [
@@ -284,6 +287,7 @@ module ProfanityFilterConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/service/xml",
                   "parts" => [

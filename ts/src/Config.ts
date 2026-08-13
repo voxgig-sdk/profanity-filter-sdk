@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'ProfanityFilter',
   }
 
 
@@ -91,6 +91,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/service/containsprofanity",
               "parts": [
@@ -171,6 +172,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/service/json",
               "parts": [
@@ -245,6 +247,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/service/plain",
               "parts": [
@@ -319,6 +322,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/service/xml",
               "parts": [

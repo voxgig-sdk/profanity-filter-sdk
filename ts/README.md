@@ -53,8 +53,8 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 
 ```ts
 try {
-  const containsprofanity = await client.Containsprofanity().load()
-  console.log(containsprofanity)
+  const plain = await client.Plain().load()
+  console.log(plain)
 } catch (err) {
   console.error('load failed:', err)
 }
@@ -120,9 +120,10 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = ProfanityFilterSDK.test()
 
-const containsprofanity = await client.Containsprofanity().load()
-// containsprofanity is a bare entity populated with mock response data
-console.log(containsprofanity)
+const plain = await client.Plain().load()
+// plain is the entity, populated with mock response data
+// — call plain.data() for the record itself
+console.log(plain)
 ```
 
 You can also use the instance method:
@@ -137,7 +138,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Containsprofanity()
+const entity = client.Plain()
 
 // First call runs the operation and stores its result
 await entity.load()
@@ -468,11 +469,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const containsprofanity = client.Containsprofanity()
-await containsprofanity.load()
+const plain = client.Plain()
+await plain.load()
 
-// containsprofanity.data() now returns the containsprofanity data from the last `load`
-// containsprofanity.match() returns the last match criteria
+// plain.data() now returns the plain data from the last `load`
+// plain.match() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

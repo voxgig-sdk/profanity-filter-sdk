@@ -59,11 +59,11 @@ def plain_direct_setup(mockres)
   calls = []
 
   env = Runner.env_override({
-    "PROFANITYFILTER_TEST_PLAIN_ENTID" => {},
-    "PROFANITYFILTER_TEST_LIVE" => "FALSE",
+    "PROFANITY_FILTER_TEST_PLAIN_ENTID" => {},
+    "PROFANITY_FILTER_TEST_LIVE" => "FALSE",
   })
 
-  live = env["PROFANITYFILTER_TEST_LIVE"] == "TRUE"
+  live = env["PROFANITY_FILTER_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {

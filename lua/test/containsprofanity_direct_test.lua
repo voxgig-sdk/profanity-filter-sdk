@@ -60,11 +60,11 @@ function containsprofanity_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["PROFANITYFILTER_TEST_CONTAINSPROFANITY_ENTID"] = {},
-    ["PROFANITYFILTER_TEST_LIVE"] = "FALSE",
+    ["PROFANITY_FILTER_TEST_CONTAINSPROFANITY_ENTID"] = {},
+    ["PROFANITY_FILTER_TEST_LIVE"] = "FALSE",
   })
 
-  local live = env["PROFANITYFILTER_TEST_LIVE"] == "TRUE"
+  local live = env["PROFANITY_FILTER_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {

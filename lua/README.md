@@ -48,7 +48,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local containsprofanity, err = client:Containsprofanity():load()
+local plain, err = client:Plain():load()
 if err then error(err) end
 ```
 
@@ -106,7 +106,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:Containsprofanity():load()
+local result, err = client:Plain():load()
 -- result is the returned data; err is set on failure
 ```
 
@@ -416,11 +416,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local containsprofanity = client:Containsprofanity()
-containsprofanity:load()
+local plain = client:Plain()
+plain:load()
 
--- containsprofanity:data_get() now returns the containsprofanity data from the last load
--- containsprofanity:match_get() returns the last match criteria
+-- plain:data_get() now returns the plain data from the last load
+-- plain:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

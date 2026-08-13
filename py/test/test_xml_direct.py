@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from profanityfilter_sdk.utility.voxgig_struct import voxgig_struct as vs
 from profanityfilter_sdk import ProfanityFilterSDK
-from core import helpers
+from profanityfilter_sdk.core import helpers
 from test import runner
 
 
@@ -56,11 +56,11 @@ def _xml_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "PROFANITYFILTER_TEST_XML_ENTID": {},
-        "PROFANITYFILTER_TEST_LIVE": "FALSE",
+        "PROFANITY_FILTER_TEST_XML_ENTID": {},
+        "PROFANITY_FILTER_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("PROFANITYFILTER_TEST_LIVE") == "TRUE"
+    live = env.get("PROFANITY_FILTER_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

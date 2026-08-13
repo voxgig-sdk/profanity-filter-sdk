@@ -38,7 +38,7 @@ client = ProfanityFilterSDK()
 
 ### 3. Load a containsprofanity
 
-`load()` returns the bare record (a `dict`) and raises on error.
+`load()` returns the ENTITY — call data_get() for the record — and raises on error.
 
 ```python
 try:
@@ -55,8 +55,8 @@ Entity operations raise on failure, so wrap them in `try` / `except`:
 
 ```python
 try:
-    containsprofanity = client.Containsprofanity().load()
-    print(containsprofanity)
+    plain = client.Plain().load()
+    print(plain)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -122,9 +122,10 @@ Create a mock client for unit testing — no server required:
 ```python
 client = ProfanityFilterSDK.test()
 
-# Entity ops return the bare record and raise on error.
-containsprofanity = client.Containsprofanity().load()
-# containsprofanity contains the mock response record
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
+plain = client.Plain().load()
+# plain contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -221,7 +222,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -430,11 +431,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-containsprofanity = client.Containsprofanity()
-containsprofanity.load()
+plain = client.Plain()
+plain.load()
 
-# containsprofanity.data_get() now returns the containsprofanity data from the last load
-# containsprofanity.match_get() returns the last match criteria
+# plain.data_get() now returns the plain data from the last load
+# plain.match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

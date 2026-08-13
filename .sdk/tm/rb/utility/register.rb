@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ ProfanityFilterUtility.registrar = ->(u) {
   u.prepare_params = ProfanityFilterUtilities::PrepareParams
   u.prepare_path = ProfanityFilterUtilities::PreparePath
   u.prepare_query = ProfanityFilterUtilities::PrepareQuery
+  u.graphql_body = ProfanityFilterUtilities::GraphqlBody
+  u.graphql_errors = ProfanityFilterUtilities::GraphqlErrors
   u.result_basic = ProfanityFilterUtilities::ResultBasic
   u.result_body = ProfanityFilterUtilities::ResultBody
   u.result_headers = ProfanityFilterUtilities::ResultHeaders

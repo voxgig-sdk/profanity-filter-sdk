@@ -38,18 +38,27 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = ProfanityFilterSDK.test()
-const containsprofanity = await client.Containsprofanity().load()
-// containsprofanity is a bare Containsprofanity populated with mock data
-console.log(containsprofanity)
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = ProfanityFilterSDK.test({
+  entity: {
+    plain: {
+      test01: { id: 'test01' },
+    },
+  },
+})
+const plain = await client.Plain().load()
+// plain is the Plain entity, populated with mock data
+// — call plain.data() for the record itself
+console.log(plain)
 ```
 
 ### Python
 
 ```python
 client = ProfanityFilterSDK.test()
-containsprofanity = client.Containsprofanity().load()
-print(containsprofanity)
+plain = client.Plain().load()
+print(plain)
 ```
 
 ### PHP
@@ -57,16 +66,16 @@ print(containsprofanity)
 ```php
 // Seed fixture data so offline calls resolve without a live server.
 $client = ProfanityFilterSDK::test([
-    "entity" => ["containsprofanity" => ["test01" => []]],
+    "entity" => ["plain" => ["test01" => []]],
 ]);
-$containsprofanity = $client->Containsprofanity()->load();
+$plain = $client->Plain()->load();
 ```
 
 ### Golang
 
 ```go
 client := sdk.Test()
-result, err := client.Containsprofanity(nil).Load(
+result, err := client.Plain(nil).Load(
     nil, nil,
 )
 ```
@@ -76,16 +85,16 @@ result, err := client.Containsprofanity(nil).Load(
 ```ruby
 # Seed fixture data so offline calls resolve without a live server.
 client = ProfanityFilterSDK.test({
-  "entity" => { "containsprofanity" => { "test01" => {} } },
+  "entity" => { "plain" => { "test01" => {} } },
 })
-containsprofanity = client.Containsprofanity.load()
+plain = client.Plain.load()
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:Containsprofanity():load()
+local result, err = client:Plain():load()
 ```
 
 ## Packages
@@ -185,7 +194,7 @@ require_once 'profanityfilter_sdk.php';
 $client = new ProfanityFilterSDK();
 
 
-// Load a specific containsprofanity (returns the bare record; throws on error)
+// Load a specific containsprofanity (returns the ENTITY; call data_get() for the record; throws on error)
 $containsprofanity = $client->Containsprofanity()->load();
 print_r($containsprofanity);
 ```
@@ -213,7 +222,7 @@ require_relative "ProfanityFilter_sdk"
 client = ProfanityFilterSDK.new
 
 
-# Load a specific containsprofanity (returns the bare record; raises on error)
+# Load a specific containsprofanity (returns the ENTITY; call data_get for the record)
 containsprofanity = client.Containsprofanity.load()
 puts containsprofanity
 ```
@@ -347,6 +356,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://www.purgomalum.com](https://www.purgomalum.com)
 

@@ -34,7 +34,7 @@ client = ProfanityFilterSDK.new
 
 ```ruby
 begin
-  # load returns the bare Containsprofanity record (raises on error).
+  # load returns the ENTITY — call data_get for the Containsprofanity record (raises on error).
   containsprofanity = client.Containsprofanity.load()
   puts containsprofanity
 rescue => err
@@ -49,7 +49,7 @@ Entity operations raise on failure, so rescue them:
 
 ```ruby
 begin
-  containsprofanity = client.Containsprofanity.load()
+  plain = client.Plain.load()
 rescue => err
   warn "load failed: #{err}"
 end
@@ -117,9 +117,10 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = ProfanityFilterSDK.test
 
-# Entity ops return the bare mock record (raises on error).
-containsprofanity = client.Containsprofanity.load()
-puts containsprofanity
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
+plain = client.Plain.load()
+puts plain
 ```
 
 ### Use a custom fetch function
@@ -288,7 +289,7 @@ Create an instance: `containsprofanity = client.Containsprofanity`
 #### Example: Load
 
 ```ruby
-# load returns the bare Containsprofanity record (raises on error).
+# load returns the ENTITY — call data_get for the Containsprofanity record (raises on error).
 containsprofanity = client.Containsprofanity.load()
 ```
 
@@ -312,7 +313,7 @@ Create an instance: `json = client.Json`
 #### Example: Load
 
 ```ruby
-# load returns the bare Json record (raises on error).
+# load returns the ENTITY — call data_get for the Json record (raises on error).
 json = client.Json.load()
 ```
 
@@ -330,7 +331,7 @@ Create an instance: `plain = client.Plain`
 #### Example: Load
 
 ```ruby
-# load returns the bare Plain record (raises on error).
+# load returns the ENTITY — call data_get for the Plain record (raises on error).
 plain = client.Plain.load()
 ```
 
@@ -348,7 +349,7 @@ Create an instance: `xml = client.Xml`
 #### Example: Load
 
 ```ruby
-# load returns the bare Xml record (raises on error).
+# load returns the ENTITY — call data_get for the Xml record (raises on error).
 xml = client.Xml.load()
 ```
 
@@ -429,11 +430,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-containsprofanity = client.Containsprofanity
-containsprofanity.load()
+plain = client.Plain
+plain.load()
 
-# containsprofanity.data_get now returns the containsprofanity data from the last load
-# containsprofanity.match_get returns the last match criteria
+# plain.data_get now returns the plain data from the last load
+# plain.match_get returns the last match criteria
 ```
 
 Call `make` to create a fresh instance with the same configuration

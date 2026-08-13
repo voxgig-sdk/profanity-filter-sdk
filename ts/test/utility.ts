@@ -62,8 +62,8 @@ function makeCtrl(explain: boolean) {
 // Overrides configuration values with environment variables if available
 function envOverride(m: Record<string, any>) {
   if (
-    'TRUE' === process.env.PROFANITYFILTER_TEST_LIVE ||
-    'TRUE' === process.env.PROFANITYFILTER_TEST_OVERRIDE
+    'TRUE' === process.env.PROFANITY_FILTER_TEST_LIVE ||
+    'TRUE' === process.env.PROFANITY_FILTER_TEST_OVERRIDE
   ) {
     Object.entries(m).map(n => {
       let envval = process.env[n[0]]
@@ -74,7 +74,7 @@ function envOverride(m: Record<string, any>) {
     })
   }
 
-  m.PROFANITYFILTER_TEST_EXPLAIN = process.env.PROFANITYFILTER_TEST_EXPLAIN || m.PROFANITYFILTER_TEST_EXPLAIN
+  m.PROFANITY_FILTER_TEST_EXPLAIN = process.env.PROFANITY_FILTER_TEST_EXPLAIN || m.PROFANITY_FILTER_TEST_EXPLAIN
 
   return m
 }

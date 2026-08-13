@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import ProfanityFilterSDK
-from core.error import ProfanityFilterError
-from core.result import ProfanityFilterResult
-from core.response import ProfanityFilterResponse
-from core.spec import ProfanityFilterSpec
-from feature.base_feature import ProfanityFilterBaseFeature
+from projectname_sdk.core.error import ProfanityFilterError
+from projectname_sdk.core.result import ProfanityFilterResult
+from projectname_sdk.core.response import ProfanityFilterResponse
+from projectname_sdk.core.spec import ProfanityFilterSpec
+from projectname_sdk.feature.base_feature import ProfanityFilterBaseFeature
 
 
 def _client():

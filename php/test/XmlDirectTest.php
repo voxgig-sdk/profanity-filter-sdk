@@ -65,11 +65,11 @@ function xml_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "PROFANITYFILTER_TEST_XML_ENTID" => [],
-        "PROFANITYFILTER_TEST_LIVE" => "FALSE",
+        "PROFANITY_FILTER_TEST_XML_ENTID" => [],
+        "PROFANITY_FILTER_TEST_LIVE" => "FALSE",
     ]);
 
-    $live = $env["PROFANITYFILTER_TEST_LIVE"] === "TRUE";
+    $live = $env["PROFANITY_FILTER_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [

@@ -55,6 +55,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/service/containsprofanity",
                 ["parts"] = {
@@ -135,6 +136,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/service/json",
                 ["parts"] = {
@@ -209,6 +211,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/service/plain",
                 ["parts"] = {
@@ -283,6 +286,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/service/xml",
                 ["parts"] = {

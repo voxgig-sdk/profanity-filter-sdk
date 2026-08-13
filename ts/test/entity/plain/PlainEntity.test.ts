@@ -26,8 +26,8 @@ import {
 describe('PlainEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when PROFANITYFILTER_TEST_LIVE=TRUE.
-  afterEach(liveDelay('PROFANITYFILTER_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when PROFANITY_FILTER_TEST_LIVE=TRUE.
+  afterEach(liveDelay('PROFANITY_FILTER_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = ProfanityFilterSDK.test()
@@ -62,7 +62,7 @@ describe('PlainEntity', async () => {
     // LOAD
     const plain_ref01_ent = client.Plain()
     const plain_ref01_match_dt0: any = {}
-    const plain_ref01_data_dt0 = await plain_ref01_ent.load(plain_ref01_match_dt0)
+    const plain_ref01_data_dt0 = (await plain_ref01_ent.load(plain_ref01_match_dt0)).data()
     assert(null != plain_ref01_data_dt0)
 
 

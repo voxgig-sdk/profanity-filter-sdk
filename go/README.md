@@ -66,12 +66,12 @@ Every entity operation returns `(value, error)`. Check `err` before
 using the value — there is no exception to catch:
 
 ```go
-containsprofanity, err := client.Containsprofanity(nil).Load(nil, nil)
+plain, err := client.Plain(nil).Load(nil, nil)
 if err != nil {
     // handle err
     return
 }
-_ = containsprofanity
+_ = plain
 ```
 
 `Direct` follows the same `(value, error)` convention:
@@ -135,13 +135,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-containsprofanity, err := client.Containsprofanity(nil).Load(
+plain, err := client.Plain(nil).Load(
     nil, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(containsprofanity) // the returned mock data
+fmt.Println(plain) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -462,11 +462,11 @@ Entity instances are stateful. After a successful `Load`, the entity
 stores the returned data and match criteria internally.
 
 ```go
-containsprofanity := client.Containsprofanity(nil)
-containsprofanity.Load(nil, nil)
+plain := client.Plain(nil)
+plain.Load(nil, nil)
 
-// containsprofanity.Data() now returns the containsprofanity data from the last load
-// containsprofanity.Match() returns the last match criteria
+// plain.Data() now returns the plain data from the last load
+// plain.Match() returns the last match criteria
 ```
 
 Call `Make()` to create a fresh instance with the same configuration
