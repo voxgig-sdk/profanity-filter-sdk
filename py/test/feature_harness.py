@@ -14,7 +14,7 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from profanityfilter_sdk.config import make_config
+from profanityfilter_sdk.config import shared_config
 from profanityfilter_sdk.features import _make_feature
 from profanityfilter_sdk.core.control import ProfanityFilterControl
 from profanityfilter_sdk.core.error import ProfanityFilterError
@@ -24,7 +24,7 @@ from profanityfilter_sdk.core.spec import ProfanityFilterSpec
 
 # True when this SDK was generated with the named feature.
 def has_feature(name):
-    feature = make_config().get("feature")
+    feature = shared_config().get("feature")
     return isinstance(feature, dict) and feature.get(name) is not None
 
 

@@ -40,7 +40,7 @@ class ProfanityFilterSDK
         $utility = new ProfanityFilterUtility();
         $this->_utility = $utility;
 
-        $config = ProfanityFilterConfig::make_config();
+        $config = ProfanityFilterConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

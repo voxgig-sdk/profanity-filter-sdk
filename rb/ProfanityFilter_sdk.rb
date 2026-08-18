@@ -28,7 +28,7 @@ class ProfanityFilterSDK
     utility = ProfanityFilterUtility.new
     @_utility = utility
 
-    config = ProfanityFilterConfig.make_config
+    config = ProfanityFilterConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,
