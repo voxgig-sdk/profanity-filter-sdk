@@ -144,7 +144,7 @@ json = client.Json()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `result` | `str` | No |  |
+| `result` | `str` | No | The filtered text with profanity removed or replaced |
 
 ### Operations
 

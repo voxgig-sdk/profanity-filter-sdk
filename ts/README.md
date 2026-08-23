@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -297,7 +297,7 @@ API path: `/service/containsprofanity`
 
 | Field | Description |
 | --- | --- |
-| `result` |  |
+| `result` | The filtered text with profanity removed or replaced |
 
 Operations: load.
 
@@ -357,7 +357,7 @@ Create an instance: `const json = client.Json()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `result` | `string` |  |
+| `result` | `string` | The filtered text with profanity removed or replaced |
 
 #### Example: Load
 

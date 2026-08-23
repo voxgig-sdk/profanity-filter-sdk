@@ -19,6 +19,9 @@ module ProfanityFilterConfig
     {
       "main" => {
         "name" => "ProfanityFilter",
+        "slug" => "profanity-filter",
+        "version" => "0.0.1",
+        "target" => "rb",
       },
       "feature" => {
         "test" => {
@@ -95,6 +98,7 @@ module ProfanityFilterConfig
           "fields" => [
             {
               "name" => "result",
+              "short" => "The filtered text with profanity removed or replaced",
               "type" => "`$STRING`",
             },
           ],

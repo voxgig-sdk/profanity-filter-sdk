@@ -148,7 +148,7 @@ local json = client:Json(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `result` | `string` | No |  |
+| `result` | `string` | No | The filtered text with profanity removed or replaced |
 
 ### Operations
 

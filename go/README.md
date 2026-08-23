@@ -6,7 +6,7 @@ The Golang SDK for the ProfanityFilter API — an entity-oriented client using s
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.Containsprofanity(nil)` — each with the same small set of operations (`Load`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -270,7 +270,7 @@ API path: `/service/containsprofanity`
 
 | Field | Description |
 | --- | --- |
-| `"result"` |  |
+| `"result"` | The filtered text with profanity removed or replaced |
 
 Operations: Load.
 
@@ -334,7 +334,7 @@ Create an instance: `json := client.Json(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `result` | `string` |  |
+| `result` | `string` | The filtered text with profanity removed or replaced |
 
 #### Example: Load
 

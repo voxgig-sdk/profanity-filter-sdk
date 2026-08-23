@@ -151,7 +151,7 @@ json = client.Json
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `result` | `String` | No |  |
+| `result` | `String` | No | The filtered text with profanity removed or replaced |
 
 ### Operations
 

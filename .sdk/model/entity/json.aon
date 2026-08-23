@@ -8,6 +8,7 @@ main: kit: entity: json: {
     {
       name: "result"
       req: false
+      short: "The filtered text with profanity removed or replaced"
       type: "`$STRING`"
     }
   ]

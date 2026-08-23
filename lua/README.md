@@ -237,7 +237,7 @@ API path: `/service/containsprofanity`
 
 | Field | Description |
 | --- | --- |
-| `result` |  |
+| `result` | The filtered text with profanity removed or replaced |
 
 Operations: Load.
 
@@ -297,7 +297,7 @@ Create an instance: `local json = client:Json(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `result` | `string` |  |
+| `result` | `string` | The filtered text with profanity removed or replaced |
 
 #### Example: Load
 
