@@ -36,7 +36,7 @@ local client = sdk.new()
 ### 3. Load a containsprofanity
 
 ```lua
-local containsprofanity, err = client:Containsprofanity():load()
+local containsprofanity, err = client:Containsprofanity():load({ text = "example_text" })
 if err then error(err) end
 print(containsprofanity)
 ```
@@ -48,7 +48,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local plain, err = client:Plain():load()
+local plain, err = client:Plain():load({ text = "example" })
 if err then error(err) end
 ```
 
@@ -106,7 +106,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:Plain():load()
+local result, err = client:Plain():load({ text = "example" })
 -- result is the returned data; err is set on failure
 ```
 
@@ -279,7 +279,7 @@ Create an instance: `local containsprofanity = client:Containsprofanity(nil)`
 #### Example: Load
 
 ```lua
-local containsprofanity, err = client:Containsprofanity():load()
+local containsprofanity, err = client:Containsprofanity():load({ text = "text" })
 ```
 
 
@@ -302,7 +302,7 @@ Create an instance: `local json = client:Json(nil)`
 #### Example: Load
 
 ```lua
-local json, err = client:Json():load()
+local json, err = client:Json():load({ text = "text" })
 ```
 
 
@@ -319,7 +319,7 @@ Create an instance: `local plain = client:Plain(nil)`
 #### Example: Load
 
 ```lua
-local plain, err = client:Plain():load()
+local plain, err = client:Plain():load({ text = "text" })
 ```
 
 
@@ -336,8 +336,31 @@ Create an instance: `local xml = client:Xml(nil)`
 #### Example: Load
 
 ```lua
-local xml, err = client:Xml():load()
+local xml, err = client:Xml():load({ text = "text" })
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced
@@ -417,7 +440,7 @@ stores the returned data and match criteria internally.
 
 ```lua
 local plain = client:Plain()
-plain:load()
+plain:load({ text = "example" })
 
 -- plain:data_get() now returns the plain data from the last load
 -- plain:match_get() returns the last match criteria

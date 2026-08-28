@@ -9,20 +9,33 @@
 ---@class Containsprofanity
 
 ---@class ContainsprofanityLoadMatch
+---@field add? string
+---@field text string
 
 ---@class Json
 ---@field result? string
 
 ---@class JsonLoadMatch
----@field result? string
+---@field add? string
+---@field fill_char? string
+---@field fill_text? string
+---@field text string
 
 ---@class Plain
 
 ---@class PlainLoadMatch
+---@field add? string
+---@field fill_char? string
+---@field fill_text? string
+---@field text string
 
 ---@class Xml
 
 ---@class XmlLoadMatch
+---@field add? string
+---@field fill_char? string
+---@field fill_text? string
+---@field text string
 
 local M = {}
 

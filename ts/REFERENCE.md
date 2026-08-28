@@ -155,7 +155,7 @@ const containsprofanity = client.Containsprofanity()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Containsprofanity().load()
+const result = await client.Containsprofanity().load({ text: 'text' })
 ```
 
 ### Common Methods
@@ -205,7 +205,7 @@ const json = client.Json()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Json().load()
+const result = await client.Json().load({ text: 'text' })
 ```
 
 ### Common Methods
@@ -249,7 +249,7 @@ const plain = client.Plain()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Plain().load()
+const result = await client.Plain().load({ text: 'text' })
 ```
 
 ### Common Methods
@@ -293,7 +293,7 @@ const xml = client.Xml()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Xml().load()
+const result = await client.Xml().load({ text: 'text' })
 ```
 
 ### Common Methods
@@ -340,4 +340,42 @@ const client = new ProfanityFilterSDK({
   }
 })
 ```
+
+
+### Configuring features
+
+Each feature is inactive until switched on, and an SDK with no feature
+configured does no feature work at all. Every option below keeps its default
+unless you name it.
+
+The array form of \`feature\` is significant: several features wrap the
+transport, and the order you list them in is the order they nest.
+
+#### `test`
+
+In-memory mock transport for testing without a live server.
+
+**Configuration**
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Options above are those the model carries a default for. A feature may
+also accept callback options — a `sink` to receive each record, for
+instance — which have no default and are covered in the full feature
+reference.
+
+**Usage**
+
+Set `feature.test.active` to true in the client options, and override any option above in the same entry. Every option keeps
+its default unless you name it.
+
+**Considerations**
+
+- Attaches to pipeline hooks, not the transport, so activation order does
+  not change what it observes.
+- Installs the BASE transport that the wrapping features wrap, so it must be
+  activated before them.
+- Inactive by default: leaving it out costs nothing at runtime.
 

@@ -18,6 +18,8 @@ type Containsprofanity struct {
 
 // ContainsprofanityLoadMatch is the typed request payload for Containsprofanity.LoadTyped.
 type ContainsprofanityLoadMatch struct {
+	Add *string `json:"add,omitempty"`
+	Text string `json:"text"`
 }
 
 // Json is the typed data model for the json entity.
@@ -27,7 +29,10 @@ type Json struct {
 
 // JsonLoadMatch is the typed request payload for Json.LoadTyped.
 type JsonLoadMatch struct {
-	Result *string `json:"result,omitempty"`
+	Add *string `json:"add,omitempty"`
+	FillChar *string `json:"fill_char,omitempty"`
+	FillText *string `json:"fill_text,omitempty"`
+	Text string `json:"text"`
 }
 
 // Plain is the typed data model for the plain entity.
@@ -36,6 +41,10 @@ type Plain struct {
 
 // PlainLoadMatch is the typed request payload for Plain.LoadTyped.
 type PlainLoadMatch struct {
+	Add *string `json:"add,omitempty"`
+	FillChar *string `json:"fill_char,omitempty"`
+	FillText *string `json:"fill_text,omitempty"`
+	Text string `json:"text"`
 }
 
 // Xml is the typed data model for the xml entity.
@@ -44,6 +53,10 @@ type Xml struct {
 
 // XmlLoadMatch is the typed request payload for Xml.LoadTyped.
 type XmlLoadMatch struct {
+	Add *string `json:"add,omitempty"`
+	FillChar *string `json:"fill_char,omitempty"`
+	FillText *string `json:"fill_text,omitempty"`
+	Text string `json:"text"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

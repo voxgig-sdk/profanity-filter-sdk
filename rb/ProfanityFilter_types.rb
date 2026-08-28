@@ -13,8 +13,17 @@ class Containsprofanity
 end
 
 # Request payload for Containsprofanity#load.
-class ContainsprofanityLoadMatch
-end
+#
+# @!attribute [rw] add
+#   @return [String, nil]
+#
+# @!attribute [rw] text
+#   @return [String]
+ContainsprofanityLoadMatch = Struct.new(
+  :add,
+  :text,
+  keyword_init: true
+)
 
 # Json entity data model.
 #
@@ -27,10 +36,22 @@ Json = Struct.new(
 
 # Request payload for Json#load.
 #
-# @!attribute [rw] result
+# @!attribute [rw] add
 #   @return [String, nil]
+#
+# @!attribute [rw] fill_char
+#   @return [String, nil]
+#
+# @!attribute [rw] fill_text
+#   @return [String, nil]
+#
+# @!attribute [rw] text
+#   @return [String]
 JsonLoadMatch = Struct.new(
-  :result,
+  :add,
+  :fill_char,
+  :fill_text,
+  :text,
   keyword_init: true
 )
 
@@ -39,14 +60,48 @@ class Plain
 end
 
 # Request payload for Plain#load.
-class PlainLoadMatch
-end
+#
+# @!attribute [rw] add
+#   @return [String, nil]
+#
+# @!attribute [rw] fill_char
+#   @return [String, nil]
+#
+# @!attribute [rw] fill_text
+#   @return [String, nil]
+#
+# @!attribute [rw] text
+#   @return [String]
+PlainLoadMatch = Struct.new(
+  :add,
+  :fill_char,
+  :fill_text,
+  :text,
+  keyword_init: true
+)
 
 # Xml entity data model.
 class Xml
 end
 
 # Request payload for Xml#load.
-class XmlLoadMatch
-end
+#
+# @!attribute [rw] add
+#   @return [String, nil]
+#
+# @!attribute [rw] fill_char
+#   @return [String, nil]
+#
+# @!attribute [rw] fill_text
+#   @return [String, nil]
+#
+# @!attribute [rw] text
+#   @return [String]
+XmlLoadMatch = Struct.new(
+  :add,
+  :fill_char,
+  :fill_text,
+  :text,
+  keyword_init: true
+)
 

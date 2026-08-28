@@ -51,7 +51,7 @@ func main() {
     client := sdk.New()
 
     // Load a single containsprofanity — the value is the loaded record.
-    containsprofanity, err := client.Containsprofanity(nil).Load(nil, nil)
+    containsprofanity, err := client.Containsprofanity(nil).Load(map[string]any{"text": "example_text"}, nil)
     if err != nil {
         panic(err)
     }
@@ -66,7 +66,7 @@ Every entity operation returns `(value, error)`. Check `err` before
 using the value — there is no exception to catch:
 
 ```go
-plain, err := client.Plain(nil).Load(nil, nil)
+plain, err := client.Plain(nil).Load(map[string]any{"text": "example"}, nil)
 if err != nil {
     // handle err
     return
@@ -136,7 +136,7 @@ Create a mock client for unit testing — no server required:
 client := sdk.Test()
 
 plain, err := client.Plain(nil).Load(
-    nil, nil,
+    map[string]any{"text": "example"}, nil,
 )
 if err != nil {
     panic(err)
@@ -312,7 +312,7 @@ Create an instance: `containsprofanity := client.Containsprofanity(nil)`
 #### Example: Load
 
 ```go
-containsprofanity, err := client.Containsprofanity(nil).Load(nil, nil)
+containsprofanity, err := client.Containsprofanity(nil).Load(map[string]any{"text": "text"}, nil)
 if err != nil {
     panic(err)
 }
@@ -339,7 +339,7 @@ Create an instance: `json := client.Json(nil)`
 #### Example: Load
 
 ```go
-json, err := client.Json(nil).Load(nil, nil)
+json, err := client.Json(nil).Load(map[string]any{"text": "text"}, nil)
 if err != nil {
     panic(err)
 }
@@ -360,7 +360,7 @@ Create an instance: `plain := client.Plain(nil)`
 #### Example: Load
 
 ```go
-plain, err := client.Plain(nil).Load(nil, nil)
+plain, err := client.Plain(nil).Load(map[string]any{"text": "text"}, nil)
 if err != nil {
     panic(err)
 }
@@ -381,12 +381,35 @@ Create an instance: `xml := client.Xml(nil)`
 #### Example: Load
 
 ```go
-xml, err := client.Xml(nil).Load(nil, nil)
+xml, err := client.Xml(nil).Load(map[string]any{"text": "text"}, nil)
 if err != nil {
     panic(err)
 }
 fmt.Println(xml) // the loaded record
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced
@@ -463,7 +486,7 @@ stores the returned data and match criteria internally.
 
 ```go
 plain := client.Plain(nil)
-plain.Load(nil, nil)
+plain.Load(map[string]any{"text": "example"}, nil)
 
 // plain.Data() now returns the plain data from the last load
 // plain.Match() returns the last match criteria

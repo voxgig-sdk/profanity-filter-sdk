@@ -14,6 +14,10 @@ Metadata kindly supplied by [www.freepublicapis.com](https://www.freepublicapis.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI with an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
 
+> **Features:** `test` — opt-in,
+> inactive until switched on, and configured per client. See the Features
+> section of any SDK README below for what each one does.
+
 ## Entities, not endpoints
 
 This SDK exposes the API as a small set of **semantic entities** — Containsprofanity, Json, Plain and Xml — that you
@@ -23,7 +27,7 @@ support (`load`):
 
 ```ts
 const client = new ProfanityFilterSDK()
-const containsprofanity = await client.Containsprofanity().load()
+const containsprofanity = await client.Containsprofanity().load({ text: "example" })
 ```
 
 Thinking in entities keeps the mental model small — for people and AI agents alike —
@@ -47,7 +51,7 @@ const client = ProfanityFilterSDK.test({
     },
   },
 })
-const plain = await client.Plain().load()
+const plain = await client.Plain().load({ text: 'example_text' })
 // plain is the Plain entity, populated with mock data
 // — call plain.data() for the record itself
 console.log(plain)
@@ -57,7 +61,7 @@ console.log(plain)
 
 ```python
 client = ProfanityFilterSDK.test()
-plain = client.Plain().load()
+plain = client.Plain().load({"text": "example"})
 print(plain)
 ```
 
@@ -68,7 +72,7 @@ print(plain)
 $client = ProfanityFilterSDK::test([
     "entity" => ["plain" => ["test01" => []]],
 ]);
-$plain = $client->Plain()->load();
+$plain = $client->Plain()->load(["text" => "example"]);
 ```
 
 ### Golang
@@ -87,14 +91,14 @@ result, err := client.Plain(nil).Load(
 client = ProfanityFilterSDK.test({
   "entity" => { "plain" => { "test01" => {} } },
 })
-plain = client.Plain.load()
+plain = client.Plain.load({ "text" => "example" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:Plain():load()
+local result, err = client:Plain():load({ text = "example" })
 ```
 
 ## Packages
@@ -181,7 +185,7 @@ client = ProfanityFilterSDK()
 
 
 # Load a specific containsprofanity (returns the record, raises on error)
-containsprofanity = client.Containsprofanity().load()
+containsprofanity = client.Containsprofanity().load({"text": "example_text"})
 print(containsprofanity)
 ```
 
@@ -195,7 +199,7 @@ $client = new ProfanityFilterSDK();
 
 
 // Load a specific containsprofanity (returns the ENTITY; call data_get() for the record; throws on error)
-$containsprofanity = $client->Containsprofanity()->load();
+$containsprofanity = $client->Containsprofanity()->load(["text" => "example_text"]);
 print_r($containsprofanity);
 ```
 
@@ -207,7 +211,7 @@ import sdk "github.com/voxgig-sdk/profanity-filter-sdk/go"
 client := sdk.New()
 
 // Load containsprofanity data
-containsprofanity, err := client.Containsprofanity(nil).Load(nil, nil)
+containsprofanity, err := client.Containsprofanity(nil).Load(map[string]any{"text": "example_text"}, nil)
 if err != nil {
     panic(err)
 }
@@ -223,7 +227,7 @@ client = ProfanityFilterSDK.new
 
 
 # Load a specific containsprofanity (returns the ENTITY; call data_get for the record)
-containsprofanity = client.Containsprofanity.load()
+containsprofanity = client.Containsprofanity.load({ "text" => "example_text" })
 puts containsprofanity
 ```
 
@@ -236,7 +240,7 @@ local client = sdk.new()
 
 
 -- Load a specific containsprofanity
-local containsprofanity, err = client:Containsprofanity():load()
+local containsprofanity, err = client:Containsprofanity():load({ text = "example_text" })
 print(containsprofanity)
 ```
 
@@ -342,6 +346,32 @@ forking the SDK.
 | **TestFeature** | In-memory mock transport for testing without a live server |
 
 Pass custom features via the `extend` option at construction time.
+
+## Customizing this SDK
+
+This repository contains its own generator (`.sdk/`), so the SDK is
+customizable without forking any upstream tool:
+
+- **The model** (`.sdk/model/`) declares everything this project owns:
+  package names, versions, active features, per-target settings. It is
+  written in [aontu](https://github.com/aontu-lang/aontu), a JSON-based
+  specification language designed for building ontologies: easy to edit
+  by hand, and files unify rather than override, so small declarations
+  compose into one model. Regeneration re-reads it every time.
+- **Templates** (`.sdk/tm/`) and **components** (`.sdk/src/cmp/`) are
+  the two layers of generation, copied into this repo: templates are the
+  literal per-language source, components generate the API-shaped parts.
+- **Regeneration merges.** By default, newly generated content is
+  three-way merged into existing files, so generator updates and local
+  edits usually converge without manual conflict handling. A project can
+  opt for plain overwrite instead.
+- **Custom features and entire custom targets** arrive through sdkgen
+  packages (`voxgig-sdkgen package add`), on the same rails as the
+  bundled languages, and `voxgig-sdkgen doctor` reports any drift from
+  what a resync would write.
+
+How-to: [customize and propagate templates](https://github.com/voxgig/sdkgen/blob/main/docs/how-to/customize-and-propagate-templates.md).
+The full story: [voxgig.com/sdk/custom](https://voxgig.com/sdk/custom).
 
 ## Per-language documentation
 

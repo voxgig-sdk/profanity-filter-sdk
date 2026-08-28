@@ -20,6 +20,8 @@ class Containsprofanity
 /** Request payload for Containsprofanity#load. */
 class ContainsprofanityLoadMatch
 {
+    public ?string $add = null;
+    public string $text;
 }
 
 /** Json entity data model. */
@@ -31,7 +33,10 @@ class Json
 /** Request payload for Json#load. */
 class JsonLoadMatch
 {
-    public ?string $result = null;
+    public ?string $add = null;
+    public ?string $fill_char = null;
+    public ?string $fill_text = null;
+    public string $text;
 }
 
 /** Plain entity data model. */
@@ -42,6 +47,10 @@ class Plain
 /** Request payload for Plain#load. */
 class PlainLoadMatch
 {
+    public ?string $add = null;
+    public ?string $fill_char = null;
+    public ?string $fill_text = null;
+    public string $text;
 }
 
 /** Xml entity data model. */
@@ -52,5 +61,9 @@ class Xml
 /** Request payload for Xml#load. */
 class XmlLoadMatch
 {
+    public ?string $add = null;
+    public ?string $fill_char = null;
+    public ?string $fill_text = null;
+    public string $text;
 }
 

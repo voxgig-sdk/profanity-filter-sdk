@@ -20,29 +20,51 @@ class Containsprofanity(TypedDict):
     pass
 
 
-class ContainsprofanityLoadMatch(TypedDict):
-    pass
+class ContainsprofanityLoadMatchRequired(TypedDict):
+    text: str
+
+
+class ContainsprofanityLoadMatch(ContainsprofanityLoadMatchRequired, total=False):
+    add: str
 
 
 class Json(TypedDict, total=False):
     result: str
 
 
-class JsonLoadMatch(TypedDict, total=False):
-    result: str
+class JsonLoadMatchRequired(TypedDict):
+    text: str
+
+
+class JsonLoadMatch(JsonLoadMatchRequired, total=False):
+    add: str
+    fill_char: str
+    fill_text: str
 
 
 class Plain(TypedDict):
     pass
 
 
-class PlainLoadMatch(TypedDict):
-    pass
+class PlainLoadMatchRequired(TypedDict):
+    text: str
+
+
+class PlainLoadMatch(PlainLoadMatchRequired, total=False):
+    add: str
+    fill_char: str
+    fill_text: str
 
 
 class Xml(TypedDict):
     pass
 
 
-class XmlLoadMatch(TypedDict):
-    pass
+class XmlLoadMatchRequired(TypedDict):
+    text: str
+
+
+class XmlLoadMatch(XmlLoadMatchRequired, total=False):
+    add: str
+    fill_char: str
+    fill_text: str

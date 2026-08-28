@@ -35,7 +35,7 @@ client = ProfanityFilterSDK.new
 ```ruby
 begin
   # load returns the ENTITY — call data_get for the Containsprofanity record (raises on error).
-  containsprofanity = client.Containsprofanity.load()
+  containsprofanity = client.Containsprofanity.load({ "text" => "example_text" })
   puts containsprofanity
 rescue => err
   warn "load failed: #{err}"
@@ -49,7 +49,7 @@ Entity operations raise on failure, so rescue them:
 
 ```ruby
 begin
-  plain = client.Plain.load()
+  plain = client.Plain.load({ "text" => "example" })
 rescue => err
   warn "load failed: #{err}"
 end
@@ -119,7 +119,7 @@ client = ProfanityFilterSDK.test
 
 # Entity ops return the ENTITY (raises on error);
 # call data_get for the mock record.
-plain = client.Plain.load()
+plain = client.Plain.load({ "text" => "example" })
 puts plain
 ```
 
@@ -290,7 +290,7 @@ Create an instance: `containsprofanity = client.Containsprofanity`
 
 ```ruby
 # load returns the ENTITY — call data_get for the Containsprofanity record (raises on error).
-containsprofanity = client.Containsprofanity.load()
+containsprofanity = client.Containsprofanity.load({ "text" => "text" })
 ```
 
 
@@ -314,7 +314,7 @@ Create an instance: `json = client.Json`
 
 ```ruby
 # load returns the ENTITY — call data_get for the Json record (raises on error).
-json = client.Json.load()
+json = client.Json.load({ "text" => "text" })
 ```
 
 
@@ -332,7 +332,7 @@ Create an instance: `plain = client.Plain`
 
 ```ruby
 # load returns the ENTITY — call data_get for the Plain record (raises on error).
-plain = client.Plain.load()
+plain = client.Plain.load({ "text" => "text" })
 ```
 
 
@@ -350,8 +350,31 @@ Create an instance: `xml = client.Xml`
 
 ```ruby
 # load returns the ENTITY — call data_get for the Xml record (raises on error).
-xml = client.Xml.load()
+xml = client.Xml.load({ "text" => "text" })
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced
@@ -431,7 +454,7 @@ stores the returned data and match criteria internally.
 
 ```ruby
 plain = client.Plain
-plain.load()
+plain.load({ "text" => "example" })
 
 # plain.data_get now returns the plain data from the last load
 # plain.match_get returns the last match criteria
