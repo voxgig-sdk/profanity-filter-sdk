@@ -1,6 +1,14 @@
 # ProfanityFilter SDK configuration
 
 
+# The sekreto plugin DEFINITIONS the model selected per feature, imported
+# above by name from the modules the catalogue's active `plugin.def`
+# entries declare. Handed to each feature (secrets builds its Sekreto
+# with them): a provider kind not listed here is unknown to that SDK.
+FEATURE_PLUGINS = {
+}
+
+
 _shared_config = None
 
 
@@ -82,9 +90,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/service/containsprofanity",
-                "parts": [
-                  "service",
-                  "containsprofanity",
+                "segments": [
+                  {
+                    "lit": "service",
+                  },
+                  {
+                    "lit": "containsprofanity",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -96,6 +108,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "service",
+                  "containsprofanity",
+                ],
               },
             ],
           },
@@ -151,9 +167,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/service/json",
-                "parts": [
-                  "service",
-                  "json",
+                "segments": [
+                  {
+                    "lit": "service",
+                  },
+                  {
+                    "lit": "json",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -167,6 +187,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "service",
+                  "json",
+                ],
               },
             ],
           },
@@ -216,9 +240,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/service/plain",
-                "parts": [
-                  "service",
-                  "plain",
+                "segments": [
+                  {
+                    "lit": "service",
+                  },
+                  {
+                    "lit": "plain",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -232,6 +260,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "service",
+                  "plain",
+                ],
               },
             ],
           },
@@ -281,9 +313,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/service/xml",
-                "parts": [
-                  "service",
-                  "xml",
+                "segments": [
+                  {
+                    "lit": "service",
+                  },
+                  {
+                    "lit": "xml",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -297,6 +333,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "service",
+                  "xml",
+                ],
               },
             ],
           },

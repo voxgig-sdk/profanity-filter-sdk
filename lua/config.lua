@@ -61,9 +61,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/service/containsprofanity",
-                ["parts"] = {
-                  "service",
-                  "containsprofanity",
+                ["segments"] = {
+                  {
+                    ["lit"] = "service",
+                  },
+                  {
+                    ["lit"] = "containsprofanity",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -74,6 +78,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "service",
+                  "containsprofanity",
                 },
               },
             },
@@ -130,9 +138,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/service/json",
-                ["parts"] = {
-                  "service",
-                  "json",
+                ["segments"] = {
+                  {
+                    ["lit"] = "service",
+                  },
+                  {
+                    ["lit"] = "json",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -145,6 +157,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "service",
+                  "json",
                 },
               },
             },
@@ -195,9 +211,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/service/plain",
-                ["parts"] = {
-                  "service",
-                  "plain",
+                ["segments"] = {
+                  {
+                    ["lit"] = "service",
+                  },
+                  {
+                    ["lit"] = "plain",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -210,6 +230,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "service",
+                  "plain",
                 },
               },
             },
@@ -260,9 +284,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/service/xml",
-                ["parts"] = {
-                  "service",
-                  "xml",
+                ["segments"] = {
+                  {
+                    ["lit"] = "service",
+                  },
+                  {
+                    ["lit"] = "xml",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -275,6 +303,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "service",
+                  "xml",
                 },
               },
             },

@@ -30,9 +30,13 @@ main: kit: entity: containsprofanity: {
           }
           method: "GET"
           orig: "/service/containsprofanity"
-          parts: [
-            "service"
-            "containsprofanity"
+          segments: [
+            {
+              lit: "service"
+            }
+            {
+              lit: "containsprofanity"
+            }
           ]
           select: {
             exist: [

@@ -53,9 +53,13 @@ main: kit: entity: json: {
           }
           method: "GET"
           orig: "/service/json"
-          parts: [
-            "service"
-            "json"
+          segments: [
+            {
+              lit: "service"
+            }
+            {
+              lit: "json"
+            }
           ]
           select: {
             exist: [

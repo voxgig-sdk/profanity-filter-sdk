@@ -44,9 +44,13 @@ main: kit: entity: plain: {
           }
           method: "GET"
           orig: "/service/plain"
-          parts: [
-            "service"
-            "plain"
+          segments: [
+            {
+              lit: "service"
+            }
+            {
+              lit: "plain"
+            }
           ]
           select: {
             exist: [

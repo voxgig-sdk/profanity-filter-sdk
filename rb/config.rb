@@ -73,9 +73,13 @@ module ProfanityFilterConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/service/containsprofanity",
-                  "parts" => [
-                    "service",
-                    "containsprofanity",
+                  "segments" => [
+                    {
+                      "lit" => "service",
+                    },
+                    {
+                      "lit" => "containsprofanity",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -87,6 +91,10 @@ module ProfanityFilterConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "service",
+                    "containsprofanity",
+                  ],
                 },
               ],
             },
@@ -142,9 +150,13 @@ module ProfanityFilterConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/service/json",
-                  "parts" => [
-                    "service",
-                    "json",
+                  "segments" => [
+                    {
+                      "lit" => "service",
+                    },
+                    {
+                      "lit" => "json",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -158,6 +170,10 @@ module ProfanityFilterConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "service",
+                    "json",
+                  ],
                 },
               ],
             },
@@ -207,9 +223,13 @@ module ProfanityFilterConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/service/plain",
-                  "parts" => [
-                    "service",
-                    "plain",
+                  "segments" => [
+                    {
+                      "lit" => "service",
+                    },
+                    {
+                      "lit" => "plain",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -223,6 +243,10 @@ module ProfanityFilterConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "service",
+                    "plain",
+                  ],
                 },
               ],
             },
@@ -272,9 +296,13 @@ module ProfanityFilterConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/service/xml",
-                  "parts" => [
-                    "service",
-                    "xml",
+                  "segments" => [
+                    {
+                      "lit" => "service",
+                    },
+                    {
+                      "lit" => "xml",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -288,6 +316,10 @@ module ProfanityFilterConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "service",
+                    "xml",
+                  ],
                 },
               ],
             },
