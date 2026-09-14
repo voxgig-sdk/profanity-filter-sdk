@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { ProfanityFilterSDK } from '@voxgig-sdk/profanity-filter'
+import { ProfanityFilterSDK } from '@voxgig-sdk/profanity-filter-sdk'
 
 const client = new ProfanityFilterSDK()
 ```
@@ -482,7 +482,7 @@ profanity-filter/
 Import the SDK from the package root:
 
 ```ts
-import { ProfanityFilterSDK } from '@voxgig-sdk/profanity-filter'
+import { ProfanityFilterSDK } from '@voxgig-sdk/profanity-filter-sdk'
 ```
 
 ### Entity state

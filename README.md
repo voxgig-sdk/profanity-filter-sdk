@@ -105,7 +105,7 @@ local result, err = client:Plain():load({ text = "example" })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/profanity-filter` | publish pending — [install from git tag](https://github.com/voxgig-sdk/profanity-filter-sdk/releases) |
+| TypeScript | `@voxgig-sdk/profanity-filter-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/profanity-filter-sdk/releases) |
 | Python | `voxgig-sdk-profanity-filter` | publish pending — [install from git tag](https://github.com/voxgig-sdk/profanity-filter-sdk/releases) |
 | PHP | `voxgig-sdk/profanity-filter` | publish pending — [install from git tag](https://github.com/voxgig-sdk/profanity-filter-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/profanity-filter-sdk/go` | `go get github.com/voxgig-sdk/profanity-filter-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:Plain():load({ text = "example" })
 ### TypeScript
 
 ```ts
-import { ProfanityFilterSDK } from '@voxgig-sdk/profanity-filter'
+import { ProfanityFilterSDK } from '@voxgig-sdk/profanity-filter-sdk'
 
 const client = new ProfanityFilterSDK()
 
