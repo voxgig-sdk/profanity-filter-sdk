@@ -24,7 +24,71 @@
         "repr": "auto"
       },
       "contributor": {},
-      "docs": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "containsprofanity": {
           "active": true,
@@ -59,6 +123,12 @@
                         "type": "`$STRING`"
                       }
                     ]
+                  },
+                  "contract": {
+                    "id": "GET /service/containsprofanity",
+                    "json": "{\"operationId\":\"containsProfanity\",\"parameters\":[{\"description\":\"Input text to be processed\",\"in\":\"query\",\"name\":\"text\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"description\":\"A comma separated list of words to be added to the profanity list. Accepts up to 10 words (or 200 maximum characters in length).\",\"in\":\"query\",\"name\":\"add\",\"required\":false,\"schema\":{\"maxLength\":200,\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"text/plain\":{\"examples\":{\"hasProfanity\":{\"value\":\"true\"},\"noProfanity\":{\"value\":\"false\"}},\"schema\":{\"enum\":[\"true\",\"false\"],\"type\":\"string\"}}},\"description\":\"Successful response\"},\"400\":{\"content\":{\"text/plain\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"Bad request - invalid parameters\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
                   },
                   "kind": "http",
                   "method": "GET",
@@ -147,6 +217,12 @@
                       }
                     ]
                   },
+                  "contract": {
+                    "id": "GET /service/json",
+                    "json": "{\"operationId\":\"filterProfanityJson\",\"parameters\":[{\"description\":\"Input text to be processed\",\"in\":\"query\",\"name\":\"text\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"description\":\"A comma separated list of words to be added to the profanity list. Accepts up to 10 words (or 200 maximum characters in length).\",\"in\":\"query\",\"name\":\"add\",\"required\":false,\"schema\":{\"maxLength\":200,\"type\":\"string\"}},{\"description\":\"Text used to replace any words matching the profanity list. Maximum length of 20 characters. When not used, the default is an asterisk (*) fill.\",\"in\":\"query\",\"name\":\"fill_text\",\"required\":false,\"schema\":{\"maxLength\":20,\"type\":\"string\"}},{\"description\":\"Single character used to replace any words matching the profanity list. Fills designated character to length of word replaced. Accepts underscore (_) tilde (~), dash/hyphen (-), equal sign (=), pipe (|) and asterisk (*). When not used, the default is an asterisk (*) fill.\",\"in\":\"query\",\"name\":\"fill_char\",\"required\":false,\"schema\":{\"enum\":[\"_\",\"~\",\"-\",\"=\",\"|\",\"*\"],\"maxLength\":1,\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"examples\":{\"cleanText\":{\"value\":{\"result\":\"this is some test input\"}},\"filteredText\":{\"value\":{\"result\":\"this is some test *****\"}}},\"schema\":{\"properties\":{\"result\":{\"description\":\"The filtered text with profanity removed or replaced\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with filtered text\"},\"400\":{\"content\":{\"application/json\":{\"examples\":{\"fillTextTooLong\":{\"value\":{\"error\":\"User Replacement Text Exceeds Limit of 20 Characters.\"}}},\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message describing the issue\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Bad request - invalid parameters\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/service/json",
@@ -227,6 +303,12 @@
                         "type": "`$STRING`"
                       }
                     ]
+                  },
+                  "contract": {
+                    "id": "GET /service/plain",
+                    "json": "{\"operationId\":\"filterProfanityPlain\",\"parameters\":[{\"description\":\"Input text to be processed\",\"in\":\"query\",\"name\":\"text\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"description\":\"A comma separated list of words to be added to the profanity list. Accepts up to 10 words (or 200 maximum characters in length).\",\"in\":\"query\",\"name\":\"add\",\"required\":false,\"schema\":{\"maxLength\":200,\"type\":\"string\"}},{\"description\":\"Text used to replace any words matching the profanity list. Maximum length of 20 characters. When not used, the default is an asterisk (*) fill.\",\"in\":\"query\",\"name\":\"fill_text\",\"required\":false,\"schema\":{\"maxLength\":20,\"type\":\"string\"}},{\"description\":\"Single character used to replace any words matching the profanity list. Fills designated character to length of word replaced. Accepts underscore (_) tilde (~), dash/hyphen (-), equal sign (=), pipe (|) and asterisk (*). When not used, the default is an asterisk (*) fill.\",\"in\":\"query\",\"name\":\"fill_char\",\"required\":false,\"schema\":{\"enum\":[\"_\",\"~\",\"-\",\"=\",\"|\",\"*\"],\"maxLength\":1,\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"text/plain\":{\"examples\":{\"cleanText\":{\"value\":\"this is some test input\"},\"filteredText\":{\"value\":\"this is some test *****\"}},\"schema\":{\"description\":\"The filtered text with profanity removed or replaced\",\"type\":\"string\"}}},\"description\":\"Successful response with filtered text\"},\"400\":{\"content\":{\"text/plain\":{\"schema\":{\"description\":\"Error message\",\"type\":\"string\"}}},\"description\":\"Bad request - invalid parameters\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
                   },
                   "kind": "http",
                   "method": "GET",
@@ -309,6 +391,12 @@
                       }
                     ]
                   },
+                  "contract": {
+                    "id": "GET /service/xml",
+                    "json": "{\"operationId\":\"filterProfanityXml\",\"parameters\":[{\"description\":\"Input text to be processed\",\"in\":\"query\",\"name\":\"text\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"description\":\"A comma separated list of words to be added to the profanity list. Accepts up to 10 words (or 200 maximum characters in length).\",\"in\":\"query\",\"name\":\"add\",\"required\":false,\"schema\":{\"maxLength\":200,\"type\":\"string\"}},{\"description\":\"Text used to replace any words matching the profanity list. Maximum length of 20 characters. When not used, the default is an asterisk (*) fill.\",\"in\":\"query\",\"name\":\"fill_text\",\"required\":false,\"schema\":{\"maxLength\":20,\"type\":\"string\"}},{\"description\":\"Single character used to replace any words matching the profanity list. Fills designated character to length of word replaced. Accepts underscore (_) tilde (~), dash/hyphen (-), equal sign (=), pipe (|) and asterisk (*). When not used, the default is an asterisk (*) fill.\",\"in\":\"query\",\"name\":\"fill_char\",\"required\":false,\"schema\":{\"enum\":[\"_\",\"~\",\"-\",\"=\",\"|\",\"*\"],\"maxLength\":1,\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/xml\":{\"examples\":{\"cleanText\":{\"value\":\"<?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\" standalone=\\\"yes\\\"?><PurgoMalum xmlns=\\\"http://www.purgomalum.com\\\"><result>this is some test input</result></PurgoMalum>\"}},\"schema\":{\"properties\":{\"result\":{\"description\":\"The filtered text with profanity removed or replaced\",\"type\":\"string\"}},\"type\":\"object\",\"xml\":{\"name\":\"PurgoMalum\",\"namespace\":\"http://www.purgomalum.com\"}}}},\"description\":\"Successful response with filtered text\"},\"400\":{\"content\":{\"application/xml\":{\"examples\":{\"fillTextTooLong\":{\"value\":\"<PurgoMalum xmlns=\\\"http://www.purgomalum.com\\\"><error>User Replacement Text Exceeds Limit of 20 Characters.</error></PurgoMalum>\"}},\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message describing the issue\",\"type\":\"string\"}},\"type\":\"object\",\"xml\":{\"name\":\"PurgoMalum\",\"namespace\":\"http://www.purgomalum.com\"}}}},\"description\":\"Bad request - invalid parameters\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/service/xml",
@@ -342,13 +430,223 @@
         }
       },
       "feature": {
+        "ratelimit": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "burst": 5,
+              "rate": 5
+            },
+            "optspec": {
+              "now": "`$FUNCTION`",
+              "sleep": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "ratelimit",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Client-side rate limiting via a token bucket",
+          "transport": "wrap",
+          "version": "0.0.1"
+        },
+        "retry": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "factor": 2,
+              "maxDelay": 2000,
+              "minDelay": 50,
+              "retries": 2,
+              "statuses": [
+                408,
+                425,
+                429,
+                500,
+                502,
+                503,
+                504
+              ]
+            },
+            "optspec": {
+              "jitter": "`$BOOLEAN`",
+              "sleep": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "retry",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Automatic retry of transient failures with exponential backoff",
+          "transport": "wrap",
+          "version": "0.0.1"
+        },
         "test": {
           "active": true,
           "base": "node_modules/@voxgig/sdkgen/project/.sdk",
           "config": {
             "options": {
               "active": false
-            }
+            },
+            "optspec": {
+              "entity": "`$MAP`",
+              "net": "`$MAP`"
+            },
+            "strict": false
           },
           "hook": {
             "GetData": {
@@ -438,6 +736,102 @@
           },
           "title": "In-memory mock transport for testing without a live server",
           "transport": "base",
+          "version": "0.0.1"
+        },
+        "timeout": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "ms": 30000
+            },
+            "optspec": {
+              "clearTimer": "`$FUNCTION`",
+              "setTimer": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "timeout",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Per-request timeout with transport abort",
+          "transport": "wrap",
           "version": "0.0.1"
         }
       },
@@ -583,6 +977,48 @@
         "website": "https://www.purgomalum.com/"
       },
       "option": {},
+      "optspec": {
+        "allow": {
+          "method": "GET,PUT,POST,PATCH,DELETE,OPTIONS",
+          "op": "create,update,load,list,remove,command,direct,graphql"
+        },
+        "apikey": "",
+        "auth": {
+          "basic": false,
+          "prefix": ""
+        },
+        "base": "http://localhost:8000",
+        "clean": {
+          "keys": "key,token,id"
+        },
+        "entity": {
+          "`$CHILD`": {
+            "`$OPEN`": true,
+            "active": false,
+            "alias": {}
+          }
+        },
+        "extend": "`$ANY`",
+        "headers": {
+          "`$CHILD`": "`$STRING`"
+        },
+        "prefix": "",
+        "secret": "",
+        "server": {
+          "`$CHILD`": ""
+        },
+        "suffix": "",
+        "system": {
+          "fetch": "`$ANY`"
+        },
+        "test": {
+          "active": false,
+          "entity": {
+            "`$OPEN`": true
+          }
+        },
+        "utility": {}
+      },
       "repo": {
         "host": "github.com",
         "path": ""
@@ -1137,6 +1573,7 @@
           },
           "package": "@voxgig/sdkgen",
           "provides": {
+            "schema": true,
             "sekreto": true
           },
           "publish": {
@@ -1178,7 +1615,7 @@
         "live": {
           "app": false,
           "base": "",
-          "strict": false
+          "strict": true
         }
       }
     }

@@ -28,6 +28,12 @@ main: kit: entity: containsprofanity: {
               }
             ]
           }
+          contract: {
+            id: "GET /service/containsprofanity"
+            json: "{\"operationId\":\"containsProfanity\",\"parameters\":[{\"description\":\"Input text to be processed\",\"in\":\"query\",\"name\":\"text\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"description\":\"A comma separated list of words to be added to the profanity list. Accepts up to 10 words (or 200 maximum characters in length).\",\"in\":\"query\",\"name\":\"add\",\"required\":false,\"schema\":{\"maxLength\":200,\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"text/plain\":{\"examples\":{\"hasProfanity\":{\"value\":\"true\"},\"noProfanity\":{\"value\":\"false\"}},\"schema\":{\"enum\":[\"true\",\"false\"],\"type\":\"string\"}}},\"description\":\"Successful response\"},\"400\":{\"content\":{\"text/plain\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"Bad request - invalid parameters\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/service/containsprofanity"
           segments: [

@@ -4,7 +4,10 @@ declare(strict_types=1);
 // ProfanityFilter SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class ProfanityFilterFeatures
@@ -14,8 +17,14 @@ class ProfanityFilterFeatures
         switch ($name) {
             case "base":
                 return new ProfanityFilterBaseFeature();
+            case "ratelimit":
+                return new ProfanityFilterRatelimitFeature();
+            case "retry":
+                return new ProfanityFilterRetryFeature();
             case "test":
                 return new ProfanityFilterTestFeature();
+            case "timeout":
+                return new ProfanityFilterTimeoutFeature();
             default:
                 return new ProfanityFilterBaseFeature();
         }
@@ -31,7 +40,10 @@ class ProfanityFilterFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;

@@ -51,6 +51,12 @@ main: kit: entity: json: {
               }
             ]
           }
+          contract: {
+            id: "GET /service/json"
+            json: "{\"operationId\":\"filterProfanityJson\",\"parameters\":[{\"description\":\"Input text to be processed\",\"in\":\"query\",\"name\":\"text\",\"required\":true,\"schema\":{\"type\":\"string\"}},{\"description\":\"A comma separated list of words to be added to the profanity list. Accepts up to 10 words (or 200 maximum characters in length).\",\"in\":\"query\",\"name\":\"add\",\"required\":false,\"schema\":{\"maxLength\":200,\"type\":\"string\"}},{\"description\":\"Text used to replace any words matching the profanity list. Maximum length of 20 characters. When not used, the default is an asterisk (*) fill.\",\"in\":\"query\",\"name\":\"fill_text\",\"required\":false,\"schema\":{\"maxLength\":20,\"type\":\"string\"}},{\"description\":\"Single character used to replace any words matching the profanity list. Fills designated character to length of word replaced. Accepts underscore (_) tilde (~), dash/hyphen (-), equal sign (=), pipe (|) and asterisk (*). When not used, the default is an asterisk (*) fill.\",\"in\":\"query\",\"name\":\"fill_char\",\"required\":false,\"schema\":{\"enum\":[\"_\",\"~\",\"-\",\"=\",\"|\",\"*\"],\"maxLength\":1,\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"examples\":{\"cleanText\":{\"value\":{\"result\":\"this is some test input\"}},\"filteredText\":{\"value\":{\"result\":\"this is some test *****\"}}},\"schema\":{\"properties\":{\"result\":{\"description\":\"The filtered text with profanity removed or replaced\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with filtered text\"},\"400\":{\"content\":{\"application/json\":{\"examples\":{\"fillTextTooLong\":{\"value\":{\"error\":\"User Replacement Text Exceeds Limit of 20 Characters.\"}}},\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message describing the issue\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Bad request - invalid parameters\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/service/json"
           segments: [
