@@ -105,12 +105,12 @@ local result, err = client:Plain():load({ text = "example" })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/profanity-filter-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/profanity-filter-sdk/releases) |
-| Python | `voxgig-sdk-profanity-filter` | publish pending — [install from git tag](https://github.com/voxgig-sdk/profanity-filter-sdk/releases) |
-| PHP | `voxgig-sdk/profanity-filter` | publish pending — [install from git tag](https://github.com/voxgig-sdk/profanity-filter-sdk/releases) |
+| TypeScript | `@voxgig-sdk/profanity-filter-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/profanity-filter-sdk/tags) |
+| Python | `voxgig-sdk-profanity-filter` | publish pending — [install from git tag](https://github.com/voxgig-sdk/profanity-filter-sdk/tags) |
+| PHP | `voxgig-sdk/profanity-filter` | publish pending — [install from git tag](https://github.com/voxgig-sdk/profanity-filter-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/profanity-filter-sdk/go` | `go get github.com/voxgig-sdk/profanity-filter-sdk/go@latest` |
-| Ruby | `voxgig-sdk-profanity-filter` | publish pending — [install from git tag](https://github.com/voxgig-sdk/profanity-filter-sdk/releases) |
-| Lua | `voxgig-sdk-profanity-filter` | publish pending — [install from git tag](https://github.com/voxgig-sdk/profanity-filter-sdk/releases) |
+| Ruby | `voxgig-sdk-profanity-filter` | publish pending — [install from git tag](https://github.com/voxgig-sdk/profanity-filter-sdk/tags) |
+| Lua | `voxgig-sdk-profanity-filter` | publish pending — [install from git tag](https://github.com/voxgig-sdk/profanity-filter-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/profanity-filter-sdk/go-cli` | `go install github.com/voxgig-sdk/profanity-filter-sdk/go-cli/cmd/profanity-filter@latest` |
 | Go MCP server | `github.com/voxgig-sdk/profanity-filter-sdk/go-mcp` | `go get github.com/voxgig-sdk/profanity-filter-sdk/go-mcp@latest` |
 

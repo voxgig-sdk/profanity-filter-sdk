@@ -127,18 +127,18 @@ class Config {
 
     entity: {
       
-      containsprofanity: {
-      },
-
-      json: {
-      },
-
-      plain: {
-      },
-
-      xml: {
-      },
-
+        containsprofanity: {
+        },
+  
+        json: {
+        },
+  
+        plain: {
+        },
+  
+        xml: {
+        },
+  
     }
   }
 
